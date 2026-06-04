@@ -19,7 +19,7 @@ export default function Navbar() {
 
         <Link
           href="/appointment"
-          className="rounded-full bg-white px-6 py-3 font-bold text-sky-800"
+          className="rounded-full  px-6 py-3  text-white"
         >
           Book Visit
         </Link>

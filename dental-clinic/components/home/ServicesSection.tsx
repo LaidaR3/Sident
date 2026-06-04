@@ -1,29 +1,33 @@
 import Link from "next/link";
 
-const categories = ["General", "Aesthetic", "Restorative", "Orthodontics"];
+const categories = [
+    "Kontrolle",
+    "Estetike",
+    "Restauruese",
+    "Ortodonci",
+];
 
 const services = [
     {
-        label: "General",
-        title: "Dental Checkups",
-        text: "Gentle exams focused on prevention and long-term oral health.",
+        label: "Kontrolle",
+        title: "Kontrolla Dentare",
+        text: "Kontrolle të rregullta për parandalimin dhe ruajtjen e shëndetit oral afatgjatë.",
     },
     {
-        label: "Aesthetic",
-        title: "Teeth Whitening",
-        text: "Safe whitening for a cleaner, brighter, and more confident smile.",
+        label: "Estetike",
+        title: "Zbardhimi i Dhëmbëve",
+        text: "Trajtim i sigurt për një buzëqeshje më të bardhë, më të pastër dhe më të ndritshme.",
     },
     {
-        label: "General",
-        title: "Teeth Cleaning",
-        text: "Professional cleaning for a fresher and healthier smile.",
+        label: "Kontrolle",
+        title: "Pastrimi Profesional",
+        text: "Pastrim profesional për një buzëqeshje më të freskët dhe më të shëndetshme.",
     },
     {
-        label: "Restorative",
-        title: "Crowns & Bridges",
-        text: "Natural-looking restorations that improve comfort and appearance.",
+        label: "Restauruese",
+        title: "Kurora & Ura Dentare",
+        text: "Restaurime me pamje natyrale që përmirësojnë funksionin dhe estetikën.",
     },
-    
 ];
 
 export default function ServicesSection() {
@@ -32,13 +36,15 @@ export default function ServicesSection() {
             <div className="mx-auto max-w-7xl">
                 <div className="mx-auto mb-10 max-w-4xl text-center">
                     <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.35em] text-slate-400">
-                        Our Treatments
+                        Trajtimet Tona
                     </p>
 
                     <h2 className="text-4xl font-light leading-tight md:text-6xl">
-                        Your Smile
+                        Buzëqeshja Juaj
                         <br />
-                        <span className="text-[#243856]">Impacts Your Confidence</span>
+                        <span className="text-[#052f5e]">
+                            Ndikon në Vetëbesimin Tuaj
+                        </span>
                     </h2>
 
                     <div className="mt-8 flex flex-wrap justify-center gap-2">
@@ -46,7 +52,7 @@ export default function ServicesSection() {
                             <span
                                 key={item}
                                 className={`rounded-full border px-5 py-2 text-xs transition-all duration-300 ${index === 1
-                                    ? "bg-[#243856] text-white"
+                                    ? "bg-[#00408a] text-white"
                                     : "border-slate-200 bg-white text-slate-500 hover:border-[#243856]/30 hover:text-[#243856]"
                                     }`}
                             >
@@ -75,10 +81,10 @@ hover:shadow-2xl
 "
                         >
                             <div className="absolute inset-0 opacity-0 transition-all duration-500 group-hover:opacity-100">
-                                <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#243856]/50 blur-3xl" />
+                                <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#00408a]/50 blur-3xl" />
                             </div>
 
-                            <div className="absolute right-4 top-4 text-7xl font-light text-[#243856] transition duration-500 group-hover:text-[#CAD7E3]/60">
+                            <div className="absolute right-4 top-3 text-7xl font-light text-[#acc7e6] transition duration-500 group-hover:text-[#CAD7E3]/60">
                                 0{index + 1}
                             </div>
 

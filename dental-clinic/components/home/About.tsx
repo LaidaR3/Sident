@@ -5,52 +5,78 @@ import Counter from "../ui/Counter";
 export default function AboutSection() {
   return (
     <section className="bg-white px-6 py-24 md:px-10">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
-        <div className="relative h-[420px] overflow-hidden rounded-[1rem]">
-          <Image
-            src="/images/img2.jpg"
-            alt="Dental clinic"
-            fill
-            className="object-cover"
-          />
+      <div className="mx-auto grid max-w-7xl items-center gap-14 md:grid-cols-2">
+        <div className="relative grid grid-cols-[0.9fr_1.1fr] gap-4">
+          <div className="space-y-4 pt-10">
+            <div className="relative h-[280px] overflow-hidden ">
+              <Image
+                src="/images/img2.jpg"
+                alt="Klinika dentare"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            <div className="relative h-[170px] overflow-hidden ">
+              <Image
+                src="/images/img3.jpg"
+                alt="Trajtim dentar"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          <div className="relative h-[390px] overflow-hidden top-20 ">
+            <Image
+              src="/images/img1.jpg"
+              alt="Kujdes dentar"
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          <div className="absolute -left-4 top-0 rounded-2xl bg-white px-5 py-4 shadow-xl">
+            <div className="text-2xl font-semibold text-[#00408a]">
+              <Counter end={10} suffix="k+" />
+            </div>
+            <p className="text-xs text-slate-500">Pacientë të kënaqur</p>
+          </div>
+
+          <div className="absolute bottom-0 left-[38%] rounded-2xl bg-white px-6 py-5 shadow-xl">
+            <div className="text-3xl font-semibold text-[#00408a]">
+              <Counter end={15} suffix="+" />
+            </div>
+            <p className="text-xs text-slate-500">Vite përvojë</p>
+          </div>
         </div>
 
         <div>
           <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-[#87A5C0]">
-            About Sident
+            Rreth Sident
           </p>
 
           <h2 className="text-3xl font-light leading-tight text-slate-900 md:text-5xl">
-            Comfortable care for every smile.
+            Kujdes i rehatshëm për çdo buzëqeshje.
           </h2>
 
           <p className="mt-6 text-base leading-8 text-slate-600">
-            We provide modern dental treatments with a gentle approach, helping
-            patients feel confident, relaxed, and cared for during every visit.
+            Ofrimi i trajtimeve moderne dentare me qasje të butë dhe profesionale,
+            duke ndihmuar pacientët të ndihen të sigurt, të qetë dhe të kujdesur
+            në çdo vizitë.
           </p>
- <div className="mt-8 grid gap-4 sm:grid-cols-3">
-  <div>
-    <Counter end={10} suffix="k+" />
-    <p className="text-sm text-slate-500">Happy patients</p>
-  </div>
 
-  <div>
-    <Counter end={15} suffix="+" />
-    <p className="text-sm text-slate-500">Years experience</p>
-  </div>
-            <div>
-              <h3 className="text-3xl font-semibold text-slate-900">24/7</h3>
-              <p className="text-sm text-slate-500">Patient support</p>
-            </div>
-          </div>
-
-        
+          <ul className="mt-8 space-y-3 text-sm text-slate-600">
+            <li>✓ Trajtime moderne dhe të personalizuara</li>
+            <li>✓ Ambient i qetë dhe mikpritës</li>
+            <li>✓ Kujdes profesional për të gjitha moshat</li>
+          </ul>
 
           <Link
             href="/about"
-            className="mt-10 inline-flex rounded-full bg-[#42679E] px-7 py-3 text-sm font-bold text-white transition hover:bg-sky-700"
+            className="mt-10 inline-flex rounded-full bg-[#00408a] px-7 py-3 text-sm font-bold text-white transition hover:bg-sky-700"
           >
-            Learn More
+            Mëso më shumë
           </Link>
         </div>
       </div>
