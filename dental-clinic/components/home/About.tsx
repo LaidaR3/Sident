@@ -5,88 +5,90 @@ import Counter from "../ui/Counter";
 export default function AboutSection() {
   return (
     <section className="bg-white px-6 py-24 md:px-10">
-      <div className="mx-auto grid max-w-7xl items-center gap-14 md:grid-cols-2">
-        <div className="relative grid grid-cols-[0.9fr_1.1fr] gap-4">
-          <div className="space-y-4 pt-10">
-            <div className="relative h-[280px] overflow-hidden ">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid items-center gap-16 md:grid-cols-[0.95fr_1.05fr]">
+          <div className="relative">
+            <div className="relative h-[560px] overflow-hidden rounded-[36px]">
               <Image
                 src="/images/img2.jpg"
-                alt="Klinika dentare"
+                alt="Sident Dental Clinic"
                 fill
                 className="object-cover"
               />
             </div>
 
-            <div className="relative h-[170px] overflow-hidden ">
-              <Image
-                src="/images/img3.jpg"
-                alt="Trajtim dentar"
-                fill
-                className="object-cover"
-              />
+            <div className="absolute -bottom-8 left-8 right-8 rounded-[28px] bg-white p-6 shadow-2xl">
+              <div className="grid grid-cols-2 gap-6 text-center">
+                <div>
+                  <div className="text-4xl font-light text-[#052f5e]">
+                    <Counter end={10} suffix="k+" />
+                  </div>
+                  <p className="mt-1 text-xs text-slate-500">
+                    Pacientë të kënaqur
+                  </p>
+                </div>
+
+                <div>
+                  <div className="text-4xl font-light text-[#052f5e]">
+                    <Counter end={15} suffix="+" />
+                  </div>
+                  <p className="mt-1 text-xs text-slate-500">Vite përvojë</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="relative h-[390px] overflow-hidden top-20 ">
-            <Image
-              src="/images/img1.jpg"
-              alt="Kujdes dentar"
-              fill
-              className="object-cover"
-            />
-          </div>
+          <div className="pt-10 md:pt-0">
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-[#87A5C0]">
+              Rreth Sident
+            </p>
 
-          <div className="absolute -left-4 top-0 rounded-2xl bg-white px-5 py-4 shadow-xl">
-            <div className="text-2xl font-semibold text-[#00408a]">
-              <Counter end={10} suffix="k+" />
+            <h2 className="text-4xl font-light leading-tight text-slate-900 md:text-6xl">
+              Kujdes dentar modern,
+              <br />
+              <span className="text-[#052f5e]">me qasje njerëzore.</span>
+            </h2>
+
+            <p className="mt-6 text-base leading-8 text-slate-600">
+              Sident Dental Clinic është krijuar për të ofruar më shumë se një
+              trajtim dentar — një përvojë të qetë, të sigurt dhe profesionale
+              për çdo pacient.
+            </p>
+
+            <p className="mt-5 text-base leading-8 text-slate-600">
+              Me teknologji bashkëkohore, ekip të përkushtuar dhe kujdes të
+              personalizuar, ne fokusohemi në parandalim, trajtime estetike dhe
+              restauruese që ndihmojnë në ruajtjen e shëndetit oral dhe
+              rikthimin e vetëbesimit.
+            </p>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl border border-slate-200 bg-[#fbfdfe] p-5">
+                <h3 className="text-sm font-semibold text-[#052f5e]">
+                  Kujdes i personalizuar
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-slate-500">
+                  Çdo trajtim planifikohet sipas nevojave të pacientit.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-[#fbfdfe] p-5">
+                <h3 className="text-sm font-semibold text-[#052f5e]">
+                  Ambient i rehatshëm
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-slate-500">
+                  Hapësirë e qetë, mikpritëse dhe e sigurt për çdo vizitë.
+                </p>
+              </div>
             </div>
-            <p className="text-xs text-slate-500">Pacientë të kënaqur</p>
+
+            <Link
+              href="/about"
+              className="mt-10 inline-flex rounded-full bg-[#052f5e] px-7 py-3 text-sm font-bold text-white transition hover:bg-[#00408a]"
+            >
+              Mëso më shumë
+            </Link>
           </div>
-
-          <div className="absolute bottom-0 left-[38%] rounded-2xl bg-white px-6 py-5 shadow-xl">
-            <div className="text-3xl font-semibold text-[#00408a]">
-              <Counter end={15} suffix="+" />
-            </div>
-            <p className="text-xs text-slate-500">Vite përvojë</p>
-          </div>
-        </div>
-
-        <div>
-          <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-[#87A5C0]">
-            Rreth Sident
-          </p>
-
-          <h2 className="text-3xl font-light leading-tight text-slate-900 md:text-5xl">
-            Kujdes i rehatshëm për çdo buzëqeshje.
-          </h2>
-
-<p className="mt-6 text-base leading-8 text-slate-600">
-  Sident Dental Clinic është themeluar me misionin për të ofruar kujdes
-  dentar cilësor në një ambient modern, të sigurt dhe mikpritës.
-  Përmes kombinimit të ekspertizës profesionale, teknologjisë bashkëkohore
-  dhe kujdesit të personalizuar, ne ndihmojmë pacientët tanë të ruajnë
-  shëndetin oral dhe të rikthejnë vetëbesimin në buzëqeshjen e tyre.
-</p>
-
-<p className="mt-5 text-base leading-8 text-slate-600">
-  Gjatë viteve, klinika jonë është zhvilluar duke investuar vazhdimisht
-  në pajisje moderne dhe metoda të avancuara trajtimi, me fokus në
-  komoditetin dhe mirëqenien e çdo pacienti. Nga kontrollet rutinë deri
-  te trajtimet estetike dhe restauruese, çdo shërbim ofrohet me përkushtim,
-  profesionalizëm dhe kujdes maksimal.
-</p>
-          <ul className="mt-8 space-y-3 text-sm text-slate-600">
-            <li>✓ Trajtime moderne dhe të personalizuara</li>
-            <li>✓ Ambient i qetë dhe mikpritës</li>
-            <li>✓ Kujdes profesional për të gjitha moshat</li>
-          </ul>
-
-          <Link
-            href="/about"
-            className="mt-10 inline-flex rounded-full bg-[#00408a] px-7 py-3 text-sm font-bold text-white transition hover:bg-sky-700"
-          >
-            Mëso më shumë
-          </Link>
         </div>
       </div>
     </section>

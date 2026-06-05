@@ -1,82 +1,93 @@
 import Image from "next/image";
+import Link from "next/link";
 
-const galleryImages = [
-  {
-    src: "/images/img10.jpg",
-    title: "Recepsioni",
-    className: "md:col-span-2 md:row-span-2",
-  },
-  {
-    src: "/images/img7.jpg",
-    title: "Dhoma e Trajtimit",
-    className: "",
-  },
-  {
-    src: "/images/img9.jpg",
-    title: "Pajisje Moderne",
-    className: "",
-  },
-  {
-    src: "/images/img8.jpg",
-    title: "Ambienti i Klinikës",
-    className: "",
-  },
-  {
-    src: "/images/img1.jpg",
-    title: "Kujdes Profesional",
-    className: "md:col-span-2",
-  },
-];
-
-export default function ClinicGallery() {
+export default function TechnologySection() {
   return (
-    <section className="bg-[#fbfdfe] px-6 py-24 text-slate-800 md:px-10">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <div className="max-w-2xl">
-            <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.35em] text-slate-400">
-              Galeria Jonë
-            </p>
-
-            <h2 className="text-4xl font-light leading-tight md:text-6xl">
-              Klinika Jonë
-
-              <br />
-              <span className="text-[#052f5e]">Një Hapësirë e Krijuar për Rehatinë Tuaj</span>
-            </h2>
+    <section className="bg-[#fbfdfe] px-6 py-24 md:px-10">
+      <div className="mx-auto grid max-w-7xl items-center gap-14 md:grid-cols-2">
+        <div className="relative">
+          <div className="relative h-[550px] overflow-hidden rounded-[32px]">
+            <Image
+              src="/images/img10.jpg"
+              alt="Sident Clinic"
+              fill
+              className="object-cover"
+            />
           </div>
 
-          <p className="max-w-md text-sm leading-7 text-slate-500">
-            Një ambient modern, i pastër dhe i pajisur me teknologji
-            bashkëkohore për të garantuar komoditet dhe siguri për çdo pacient.
-          </p>
+          <div className="absolute -bottom-6 -right-6 rounded-[24px] bg-white p-6 shadow-xl">
+            <div className="text-3xl font-light text-[#052f5e]">
+              15+
+            </div>
+            <p className="mt-1 text-sm text-slate-500">
+              Vite Eksperiencë
+            </p>
+          </div>
         </div>
 
-        <div className="grid auto-rows-[260px] grid-cols-1 gap-5 md:grid-cols-4">
-          {galleryImages.map((image) => (
-            <div
-              key={image.src}
-              className={`group relative overflow-hidden rounded-[28px] bg-slate-100 shadow-sm ${image.className}`}
-            >
-              <Image
-                src={image.src}
-                alt={image.title}
-                fill
-                className="object-cover transition duration-700 group-hover:scale-110"
-              />
+        <div>
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-[#87A5C0]">
+            Teknologjia Jonë
+          </p>
 
-              <div className="absolute inset-0 bg-gradient-to-t from-[#052f5e]/70 via-[#052f5e]/10 to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
+          <h2 className="text-4xl font-light leading-tight text-slate-900 md:text-6xl">
+            Teknologji Moderne
+            <br />
+            <span className="text-[#052f5e]">
+              për Rezultate të Shkëlqyera
+            </span>
+          </h2>
 
-              <div className="absolute bottom-5 left-5 translate-y-4 opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-blue-100">
-                  Sident Clinic
-                </p>
-                <h3 className="mt-2 text-2xl font-light text-white">
-                  {image.title}
-                </h3>
-              </div>
+          <p className="mt-6 text-base leading-8 text-slate-600">
+            Në Sident Dental Clinic investojmë vazhdimisht në pajisje
+            moderne dhe teknologji të avancuar për të ofruar trajtime
+            më të sigurta, më komode dhe më precize për pacientët tanë.
+          </p>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-2">
+            <div className="rounded-2xl border border-slate-200 bg-white p-5">
+              <h3 className="font-medium text-[#052f5e]">
+                Diagnostikim Preciz
+              </h3>
+              <p className="mt-2 text-sm text-slate-500">
+                Pajisje moderne për analiza dhe diagnostikim të saktë.
+              </p>
             </div>
-          ))}
+
+            <div className="rounded-2xl border border-slate-200 bg-white p-5">
+              <h3 className="font-medium text-[#052f5e]">
+                Ambient Steril
+              </h3>
+              <p className="mt-2 text-sm text-slate-500">
+                Standardet më të larta të higjienës dhe sigurisë.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-white p-5">
+              <h3 className="font-medium text-[#052f5e]">
+                Pajisje Moderne
+              </h3>
+              <p className="mt-2 text-sm text-slate-500">
+                Teknologji bashkëkohore për trajtime më efikase.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-white p-5">
+              <h3 className="font-medium text-[#052f5e]">
+                Kujdes Profesional
+              </h3>
+              <p className="mt-2 text-sm text-slate-500">
+                Ekip i përkushtuar për përvojën më të mirë të pacientit.
+              </p>
+            </div>
+          </div>
+
+          <Link
+            href="/contact"
+            className="mt-10 inline-flex rounded-full bg-[#052f5e] px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#00408a]"
+          >
+            Rezervo Termin
+          </Link>
         </div>
       </div>
     </section>
