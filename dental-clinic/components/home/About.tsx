@@ -60,12 +60,21 @@ export default function AboutSection() {
             Kujdes i rehatshëm për çdo buzëqeshje.
           </h2>
 
-          <p className="mt-6 text-base leading-8 text-slate-600">
-            Ofrimi i trajtimeve moderne dentare me qasje të butë dhe profesionale,
-            duke ndihmuar pacientët të ndihen të sigurt, të qetë dhe të kujdesur
-            në çdo vizitë.
-          </p>
+<p className="mt-6 text-base leading-8 text-slate-600">
+  Sident Dental Clinic është themeluar me misionin për të ofruar kujdes
+  dentar cilësor në një ambient modern, të sigurt dhe mikpritës.
+  Përmes kombinimit të ekspertizës profesionale, teknologjisë bashkëkohore
+  dhe kujdesit të personalizuar, ne ndihmojmë pacientët tanë të ruajnë
+  shëndetin oral dhe të rikthejnë vetëbesimin në buzëqeshjen e tyre.
+</p>
 
+<p className="mt-5 text-base leading-8 text-slate-600">
+  Gjatë viteve, klinika jonë është zhvilluar duke investuar vazhdimisht
+  në pajisje moderne dhe metoda të avancuara trajtimi, me fokus në
+  komoditetin dhe mirëqenien e çdo pacienti. Nga kontrollet rutinë deri
+  te trajtimet estetike dhe restauruese, çdo shërbim ofrohet me përkushtim,
+  profesionalizëm dhe kujdes maksimal.
+</p>
           <ul className="mt-8 space-y-3 text-sm text-slate-600">
             <li>✓ Trajtime moderne dhe të personalizuara</li>
             <li>✓ Ambient i qetë dhe mikpritës</li>

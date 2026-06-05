@@ -4,6 +4,8 @@ import ServicesSection from "@/components/home/ServicesSection";
 // import QuoteSection from "@/components/home/QuoteSection";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import TeamSection from "@/components/home/Team";
+import ClinicGallery from "@/components/home/Gallery";
+
 
 export default function Home() {
   return (
@@ -14,6 +16,7 @@ export default function Home() {
       <WhyChooseUs />
       <ServicesSection />
       <TeamSection />
+      <ClinicGallery />
      
     </main>
   );
