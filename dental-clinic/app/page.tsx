@@ -5,7 +5,7 @@ import ServicesSection from "@/components/home/ServicesSection";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import TeamSection from "@/components/home/Team";
 import ClinicGallery from "@/components/home/Gallery";
-
+import AppointmentContact from "@/components/home/Contact";
 
 export default function Home() {
   return (
@@ -17,6 +17,7 @@ export default function Home() {
       <ServicesSection />
       <TeamSection />
       <ClinicGallery />
+      <AppointmentContact />
      
     </main>
   );
