@@ -55,15 +55,14 @@ export default function Hero() {
                             <div className="mt-8 flex flex-wrap items-center gap-4">
                                 <Link
                                     href="/appointment"
-                                    className="inline-flex rounded-full bg-[#00408a] px-7 py-3 text-white transition-all duration-300 hover:bg-green-500"
+                                    className="inline-flex rounded-full bg-[#00408a] px-7 py-3 text-white transition-all duration-300 hover:bg-[#0056b8] hover:-translate-y-1"
                                 >
                                     Cakto terminin
                                 </Link>
 
                                 <Link
                                     href="/services"
-                                    className="inline-flex rounded-full border border-white px-7 py-3 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-white hover:text-sky-900"
-                                >
+                                    className="inline-flex rounded-full border border-white px-7 py-3 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-white hover:text-sky-900">
                                     Shiko sherbimet
                                 </Link>
                             </div>

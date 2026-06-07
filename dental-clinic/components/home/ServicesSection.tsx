@@ -126,7 +126,7 @@ export default function ServicesSection() {
                     {activeServices.map((service, index) => (
                         <div
                             key={`${activeCategory}-${service.title}`}
-                            className="group relative min-h-[340px] overflow-hidden rounded-[20px] border border-slate-200 bg-white p-7 shadow-sm transition-all duration-500 hover:-translate-y-3 hover:border-[#243856]/20 hover:bg-[#243856] hover:shadow-2xl"
+                            className="group relative min-h-[340px] overflow-hidden rounded-[20px] border border-slate-200 bg-white p-7 shadow-sm transition-all duration-500 hover:-translate-y-3 hover:border-[#243856]/20 hover:bg-[#052f5e] hover:shadow-2xl"
                         >
                             <div className="absolute right-4 top-3 text-7xl font-light text-[#acc7e6] transition duration-500 group-hover:text-[#CAD7E3]/60">
                                 {String(index + 1).padStart(2, "0")}
