@@ -10,7 +10,7 @@ export default function About() {
             <AboutHero />
             <StorySection />
             <MissionVision />
-            <DoctorsSection/>
+            {/* <DoctorsSection/> */}
             <StatsSection />
             <TechnologyFacilities />
         </main>

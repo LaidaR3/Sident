@@ -5,8 +5,8 @@ export default function AboutHero() {
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 text-center text-white md:px-10">
       <div className="absolute inset-0 bg-[url('/images/img11.jpg')] bg-cover bg-center" />
 
-      <div className="absolute inset-0 bg-[#052f5e]/70" />
-      <div className="absolute inset-0 bg-black/20" />
+      
+      <div className="absolute inset-0 bg-black/70" />
 
       <div className="relative z-10 mx-auto max-w-5xl pt-24">
         <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.4em] text-blue-200">
