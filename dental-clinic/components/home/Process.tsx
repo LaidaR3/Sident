@@ -4,22 +4,22 @@ const steps = [
   {
     number: "01",
     title: "Konsultimi",
-    text: "Degjojme shqetesimet tuaja dhe kuptojme cfare rezultati deshironi.",
+    text: "Degjojmë shqetësimet tuaja dhe kuptojmë cfarë rezultati dëshironi.",
   },
   {
     number: "02",
     title: "Diagnostikimi",
-    text: "Bejme kontrollin dentar dhe vleresimin per nje plan te sakte trajtimi.",
+    text: "Bejmë kontrollin dentar dhe vlerësimin për një plan të saktë trajtimi.",
   },
   {
     number: "03",
     title: "Plani i Trajtimit",
-    text: "Ju shpjegojme hapat, kohen dhe menyren me te mire te trajtimit.",
+    text: "Ju shpjegojmë hapat, kohën dhe menyrën më të mirë të trajtimit.",
   },
   {
     number: "04",
     title: "Trajtimi Final",
-    text: "Realizojme trajtimin me kujdes, rehati dhe profesionalizem.",
+    text: "Realizojmë trajtimin me kujdes, rehati dhe profesionalizëm.",
   },
 ];
 
@@ -29,7 +29,7 @@ export default function ProcessSection() {
       <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[0.8fr_1.2fr]">
         <div className="lg:sticky lg:top-28 lg:h-fit">
           <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-[#00408a]">
-            Procesi yne
+            Procesi ynë
           </p>
 
           <h2 className="text-4xl font-light leading-tight text-slate-900 md:text-5xl">
@@ -40,7 +40,7 @@ export default function ProcessSection() {
           </h2>
 
           <p className="mt-6 text-base leading-8 text-slate-600">
-            Cdo hap eshte i organizuar qarte, qe trajtimi juaj te jete i lehte,
+            Cdo hap është i organizuar qartë, qe trajtimi juaj te jetë i lehtë,
             i sigurt dhe pa stres.
           </p>
 

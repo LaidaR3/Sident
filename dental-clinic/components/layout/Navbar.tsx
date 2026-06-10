@@ -17,8 +17,10 @@ export default function Navbar() {
 
   return (
     <header className="absolute left-0 top-0 z-50 w-full">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 text-white md:px-10">
-        <Link href="/" className="relative h-16 w-[170px]">
+      <nav className="relative mx-auto flex max-w-7xl items-center px-6 py-4 text-white md:px-10">
+        
+        {/* Logo */}
+        <Link href="/" className="relative h-20 w-[230px]">
           <Image
             src="/images/logo.png"
             alt="Sident Logo"
@@ -28,7 +30,8 @@ export default function Navbar() {
           />
         </Link>
 
-        <div className="hidden items-center gap-8 rounded-full bg-white/10 px-6 py-3 backdrop-blur-md md:flex">
+        {/* Desktop Menu */}
+        <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 rounded-full bg-white/10 px-8 py-4 backdrop-blur-md md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -40,22 +43,17 @@ export default function Navbar() {
           ))}
         </div>
 
-        <Link
-          href="/appointment"
-          className="hidden rounded-full bg-white px-6 py-3 text-sm font-bold text-[#00408a] transition-all duration-300 hover:-translate-y-1 hover:bg-[#00408a] hover:text-white md:inline-flex"
-        >
-          Book Visit
-        </Link>
-
+        {/* Mobile Menu Button */}
         <button
           type="button"
           onClick={() => setOpen(!open)}
-          className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-2xl backdrop-blur-md md:hidden"
+          className="ml-auto flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-2xl backdrop-blur-md md:hidden"
         >
           {open ? "×" : "☰"}
         </button>
       </nav>
 
+      {/* Mobile Menu */}
       {open && (
         <div className="mx-6 rounded-[24px] bg-[#052f5e] p-6 shadow-2xl md:hidden">
           <div className="flex flex-col gap-4">
@@ -69,14 +67,6 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-
-            <Link
-              href="/appointment"
-              onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-white px-6 py-3 text-center text-sm font-bold text-[#00408a]"
-            >
-              Book Visit
-            </Link>
           </div>
         </div>
       )}

@@ -29,11 +29,11 @@ export default function WhyChooseUs() {
                             Pse të na zgjidhni ne
                         </p>
 
-<h2 className="max-w-2xl text-3xl font-light leading-[1.15] text-[#243856] md:text-[4rem]">
-  Kujdes profesional
-  <br />
-  për buzëqeshjen tuaj.
-</h2>
+                        <h2 className="max-w-2xl text-3xl font-light leading-[1.15] text-[#243856] md:text-[4rem]">
+                            Kujdes profesional
+                            <br />
+                            për buzëqeshjen tuaj.
+                        </h2>
                         <div className="mt-12 border-t border-[#243856]/15">
                             {items.map((item, index) => (
                                 <div

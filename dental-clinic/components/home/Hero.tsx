@@ -54,7 +54,7 @@ export default function Hero() {
 
                             <div className="mt-8 flex flex-wrap items-center gap-4">
                                 <Link
-                                    href="/appointment"
+                                    href="/contact"
                                     className="inline-flex rounded-full bg-[#00408a] px-7 py-3 text-white transition-all duration-300 hover:bg-[#0056b8] hover:-translate-y-1"
                                 >
                                     Cakto terminin

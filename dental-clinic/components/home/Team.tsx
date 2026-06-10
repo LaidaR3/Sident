@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import Link from "next/link";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -93,6 +94,13 @@ export default function TeamSection() {
                     <p className="mt-5 text-sm leading-7 text-slate-500">
                       {doctor.text}
                     </p>
+                    <Link
+  href="/doctors#profiles"
+  className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#052f5e] transition hover:gap-3"
+>
+  Lexo më shumë
+  <span>→</span>
+</Link>
 
                     <div className="mt-8 h-px w-16 bg-[#052f5e]/20" />
                   </div>
