@@ -9,7 +9,7 @@ export default function Services() {
     <main>
       <ServicesHero />
 
-      <Suspense fallback={null}>
+      <Suspense fallback={<div className="px-6 py-24">Loading...</div>}>
         <ServicesGrid />
       </Suspense>
 
