@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState } from "react";
 import Image from "next/image";
 
 const categories = ["Kontrolle", "Estetike", "Restauruese", "Ortodonci"];
@@ -194,20 +193,21 @@ const servicesByCategory = {
       ],
     },
   ],
-};;
+};
 
+type ServicesDetailsProps = {
+  initialCategory?: string;
+};
 
-export default function ServicesDetails() {
-  const searchParams = useSearchParams();
-  const categoryFromUrl = searchParams.get("category");
+export default function ServicesDetails({
+  initialCategory,
+}: ServicesDetailsProps) {
+  const validCategory =
+    initialCategory && categories.includes(initialCategory)
+      ? initialCategory
+      : "Kontrolle";
 
-  const [activeCategory, setActiveCategory] = useState("Kontrolle");
-
-  useEffect(() => {
-    if (categoryFromUrl && categories.includes(categoryFromUrl)) {
-      setActiveCategory(categoryFromUrl);
-    }
-  }, [categoryFromUrl]);
+  const [activeCategory, setActiveCategory] = useState(validCategory);
 
   const activeServices =
     servicesByCategory[activeCategory as keyof typeof servicesByCategory];
@@ -216,7 +216,8 @@ export default function ServicesDetails() {
     <section
       id="services-details"
       className="scroll-mt-24 bg-[#fbfdfe] px-6 py-24 text-slate-800 md:px-10"
-    >      <div className="mx-auto max-w-7xl">
+    >
+      <div className="mx-auto max-w-7xl">
         <div className="mb-14 flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div className="max-w-3xl">
             <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.35em] text-[#87A5C0]">
@@ -242,10 +243,11 @@ export default function ServicesDetails() {
               key={category}
               type="button"
               onClick={() => setActiveCategory(category)}
-              className={`rounded-full border px-6 py-3 text-sm transition-all duration-300 ${activeCategory === category
+              className={`rounded-full border px-6 py-3 text-sm transition-all duration-300 active:scale-95 ${
+                activeCategory === category
                   ? "border-[#052f5e] bg-[#052f5e] text-white"
                   : "border-slate-200 bg-white text-slate-500 hover:border-[#052f5e] hover:text-[#052f5e]"
-                }`}
+              }`}
             >
               {category}
             </button>
@@ -259,7 +261,7 @@ export default function ServicesDetails() {
             return (
               <div
                 key={service.title}
-                className={`grid overflow-hidden rounded-[34px] border border-slate-200 bg-white shadow-sm md:grid-cols-2`}
+                className="grid overflow-hidden rounded-[34px] border border-slate-200 bg-white shadow-sm md:grid-cols-2"
               >
                 <div className={reverse ? "md:order-2" : ""}>
                   <div className="relative h-[360px] md:h-full">
@@ -273,8 +275,9 @@ export default function ServicesDetails() {
                 </div>
 
                 <div
-                  className={`flex flex-col justify-center p-8 md:p-12 ${reverse ? "md:order-1" : ""
-                    }`}
+                  className={`flex flex-col justify-center p-8 md:p-12 ${
+                    reverse ? "md:order-1" : ""
+                  }`}
                 >
                   <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-[#87A5C0]">
                     {activeCategory}
@@ -304,13 +307,6 @@ export default function ServicesDetails() {
                     <span className="rounded-full bg-[#052f5e]/10 px-5 py-3 text-xs font-semibold text-[#052f5e]">
                       Kohëzgjatja: {service.duration}
                     </span>
-
-                    {/* <Link
-                      href="/appointment"
-                      className="rounded-full bg-[#052f5e] px-6 py-3 text-xs font-bold text-white transition hover:bg-[#00408a]"
-                    >
-                      Rezervo Termin
-                    </Link> */}
                   </div>
                 </div>
               </div>
