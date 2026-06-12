@@ -1,0 +1,28 @@
+.stats-header {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.stats-card {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease;
+}
+
+.stats-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stats-line {
+  transition: width 0.4s ease;
+}
+
+.stats-card:hover .stats-line {
+  width: 80px;
+}
+
+.stats-card:hover {
+  transform: translateY(-8px);
+}

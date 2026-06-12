@@ -1,4 +1,8 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import "./WhyChooseUs.css";
 
 const items = [
   {
@@ -20,16 +24,52 @@ const items = [
 ];
 
 export default function WhyChooseUs() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(section);
+        }
+      },
+      {
+        threshold: 0.25,
+      }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="bg-[#CAD7E3] px-5 py-16 md:px-10 md:py-20">
+    <section
+      ref={sectionRef}
+      className="bg-[#CAD7E3] px-5 py-16 md:px-10 md:py-20"
+    >
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-end md:gap-14">
           <div>
-            <p className="mobile-fade-up mb-4 text-[10px] font-bold uppercase tracking-[0.28em] text-[#243856]/60 md:mb-5 md:tracking-[0.35em]">
+            <p
+              className={`why-slide-left mb-4 text-[10px] font-bold uppercase tracking-[0.28em] text-[#243856]/60 md:mb-5 md:tracking-[0.35em] ${
+                isVisible ? "why-visible" : ""
+              }`}
+            >
               Pse të na zgjidhni ne
             </p>
 
-            <h2 className="mobile-fade-up mobile-delay-100 max-w-2xl text-3xl font-light leading-tight text-[#243856] md:text-[4rem] md:leading-[1.15]">
+            <h2
+              className={`why-slide-left why-delay-100 max-w-2xl text-3xl font-light leading-tight text-[#243856] md:text-[4rem] md:leading-[1.15] ${
+                isVisible ? "why-visible" : ""
+              }`}
+            >
               Kujdes profesional
               <br />
               për buzëqeshjen tuaj.
@@ -39,15 +79,15 @@ export default function WhyChooseUs() {
               {items.map((item, index) => (
                 <div
                   key={item.title}
-                  className={`mobile-fade-up group border-b border-[#243856]/15 py-5 transition-all duration-500 active:bg-white/20 md:py-7 md:hover:pl-4 ${
+                  className={`why-slide-left why-item group border-b border-[#243856]/15 py-5 transition-all duration-500 md:py-7 ${
                     index === 0
-                      ? "mobile-delay-200"
+                      ? "why-delay-200"
                       : index === 1
-                      ? "mobile-delay-300"
+                      ? "why-delay-300"
                       : index === 2
-                      ? "mobile-delay-400"
-                      : "mobile-delay-500"
-                  }`}
+                      ? "why-delay-400"
+                      : "why-delay-500"
+                  } ${isVisible ? "why-visible" : ""}`}
                 >
                   <div className="flex items-start justify-between gap-4 md:gap-8">
                     <div className="flex gap-4 md:gap-6">
@@ -65,18 +105,26 @@ export default function WhyChooseUs() {
                         </p>
                       </div>
                     </div>
+
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/40 text-sm text-[#243856] transition active:scale-90 md:opacity-0 md:group-hover:opacity-100">
+                      ↗
+                    </span>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="mobile-fade-up mobile-delay-400 relative h-[420px] overflow-hidden rounded-[28px] md:h-[620px] md:rounded-[40px]">
+          <div
+            className={`why-slide-right why-delay-400 why-image relative h-[420px] overflow-hidden rounded-[28px] md:h-[620px] md:rounded-[40px] ${
+              isVisible ? "why-visible" : ""
+            }`}
+          >
             <Image
               src="/images/img3.jpg"
               alt="Dental care"
               fill
-              className="object-cover transition duration-700 active:scale-105 md:hover:scale-105"
+              className="object-cover"
             />
           </div>
         </div>

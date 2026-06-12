@@ -1,0 +1,63 @@
+.hero-fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: heroFadeUp 1s ease forwards;
+}
+
+.hero-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.hero-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.hero-delay-600 {
+  animation-delay: 0.6s;
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-scroll {
+  animation: floatMouse 2s ease-in-out infinite;
+}
+
+.hero-scroll div {
+  animation: scrollDot 2s infinite;
+}
+
+@keyframes floatMouse {
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@keyframes scrollDot {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}

@@ -1,0 +1,44 @@
+.why-slide-left {
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.why-slide-right {
+  opacity: 0;
+  transform: translateX(80px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.why-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.why-delay-100 {
+  transition-delay: 0.1s;
+}
+
+.why-delay-200 {
+  transition-delay: 0.2s;
+}
+
+.why-delay-300 {
+  transition-delay: 0.3s;
+}
+
+.why-delay-400 {
+  transition-delay: 0.4s;
+}
+
+.why-delay-500 {
+  transition-delay: 0.5s;
+}
+
+.why-image img {
+  transition: transform 1.2s ease;
+}
+
+.why-image:hover img {
+  transform: scale(1.04);
+}

@@ -1,0 +1,24 @@
+.about-slide-left {
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.about-slide-right {
+  opacity: 0;
+  transform: translateX(80px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.about-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.about-image img {
+  transition: transform 1.2s ease;
+}
+
+.about-image:hover img {
+  transform: scale(1.04);
+}
