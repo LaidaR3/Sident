@@ -8,7 +8,7 @@ export default function AboutSection() {
       <div className="mx-auto max-w-7xl">
         <div className="grid items-center gap-16 md:grid-cols-[0.95fr_1.05fr]">
           <div className="relative">
-            <div className="relative h-[560px] overflow-hidden rounded-[36px]">
+            <div className="relative h-[420px] overflow-hidden rounded-[36px] md:h-[560px]">
               <Image
                 src="/images/img2.jpg"
                 alt="Sident Dental Clinic"
@@ -84,7 +84,7 @@ export default function AboutSection() {
 
             <Link
               href="/about"
-              className="mt-10 inline-flex rounded-full bg-[#052f5e] px-7 py-3 text-sm font-bold text-white transition hover:bg-[#00408a]"
+              className="mt-10 inline-flex rounded-full bg-[#052f5e] px-7 py-3 text-sm font-bold text-white transition hover:bg-[#00408a] active:scale-95 active:bg-[#00408a]"
             >
               Mëso më shumë
             </Link>
