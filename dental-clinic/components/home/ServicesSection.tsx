@@ -112,8 +112,8 @@ export default function ServicesSection() {
                                 type="button"
                                 onClick={() => setActiveCategory(item)}
                                 className={`rounded-full border px-5 py-2 text-xs transition-all duration-300 ${activeCategory === item
-                                        ? "border-[#00408a] bg-[#00408a] text-white"
-                                        : "border-slate-200 bg-white text-slate-500 hover:border-[#243856]/30 hover:text-[#243856]"
+                                    ? "border-[#00408a] bg-[#00408a] text-white"
+                                    : "border-slate-200 bg-white text-slate-500 hover:border-[#243856]/30 hover:text-[#243856]"
                                     }`}
                             >
                                 {item}
@@ -148,7 +148,7 @@ export default function ServicesSection() {
                                 </div>
 
                                 <Link
-                                    href="/services"
+                                    href={`/services?category=${activeCategory}#services-details`}
                                     className="mt-10 inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-50 text-xl text-slate-500 transition-all duration-500 group-hover:bg-white group-hover:text-[#243856]"
                                 >
                                     <span className="transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
