@@ -1,65 +1,43 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface CounterProps {
   end: number;
   suffix?: string;
 }
 
-export default function Counter({
-  end,
-  suffix = "",
-}: CounterProps) {
+export default function Counter({ end, suffix = "" }: CounterProps) {
   const [count, setCount] = useState(0);
-  const [started, setStarted] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setStarted(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.5 }
-    );
+    let animationFrame: number;
+    const duration = 1200;
+    const startTime = performance.now();
+    
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    const animate = (currentTime: number) => {
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      const value = Math.floor(progress * end);
 
-    return () => observer.disconnect();
-  }, []);
+      setCount(value);
 
-  useEffect(() => {
-    if (!started) return;
-
-    let start = 0;
-    const duration = 1000;
-    const increment = end / (duration / 16);
-
-    const timer = setInterval(() => {
-      start += increment;
-
-      if (start >= end) {
-        setCount(end);
-        clearInterval(timer);
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
       } else {
-        setCount(Math.floor(start));
+        setCount(end);
       }
-    }, 16);
+    };
 
-    return () => clearInterval(timer);
-  }, [started, end]);
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationFrame);
+  }, [end]);
 
   return (
-    <div ref={ref}>
-      <h3 className="text-3xl font-semibold text-slate-900">
-        {count}
-        {suffix}
-      </h3>
-    </div>
+    <span>
+      {count}
+      {suffix}
+    </span>
   );
 }
