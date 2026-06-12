@@ -1,0 +1,45 @@
+.doctors-header {
+  animation: doctorsHeaderFade 0.9s ease forwards;
+}
+
+@keyframes doctorsHeaderFade {
+  from {
+    opacity: 0;
+    transform: translateY(45px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.doctor-slide-left,
+.doctor-slide-right {
+  opacity: 0;
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.doctor-slide-left {
+  transform: translateX(-80px);
+}
+
+.doctor-slide-right {
+  transform: translateX(80px);
+}
+
+.doctor-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+  .doctor-slide-left,
+  .doctor-slide-right {
+    transform: translateY(45px);
+  }
+
+  .doctor-visible {
+    transform: translateY(0);
+  }
+}

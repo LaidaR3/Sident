@@ -1,9 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import "./ServicesDetails.css";
 
 const categories = ["Kontrolle", "Estetike", "Restauruese", "Ortodonci"];
+
+
 
 const servicesByCategory = {
   Kontrolle: [
@@ -202,6 +205,9 @@ type ServicesDetailsProps = {
 export default function ServicesDetails({
   initialCategory,
 }: ServicesDetailsProps) {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
   const validCategory =
     initialCategory && categories.includes(initialCategory)
       ? initialCategory
@@ -209,16 +215,46 @@ export default function ServicesDetails({
 
   const [activeCategory, setActiveCategory] = useState(validCategory);
 
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(section);
+        }
+      },
+      {
+        threshold: 0.25,
+        rootMargin: "-80px 0px",
+      }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
   const activeServices =
     servicesByCategory[activeCategory as keyof typeof servicesByCategory];
 
   return (
-    <section
-      id="services-details"
-      className="scroll-mt-24 bg-[#fbfdfe] px-6 py-24 text-slate-800 md:px-10"
-    >
+<section
+  ref={sectionRef}
+  id="services-details"
+  className={`scroll-mt-24 bg-[#fbfdfe] px-6 py-24 text-slate-800 md:px-10 ${
+    isVisible ? "services-section-visible" : ""
+  }`}
+>
       <div className="mx-auto max-w-7xl">
-        <div className="mb-14 flex flex-col justify-between gap-8 md:flex-row md:items-end">
+        <div
+          className={`services-header mb-14 flex flex-col justify-between gap-8 md:flex-row md:items-end ${
+            isVisible ? "services-visible" : ""
+          }`}
+        >
           <div className="max-w-3xl">
             <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.35em] text-[#87A5C0]">
               Kategoritë e Shërbimeve
@@ -237,7 +273,11 @@ export default function ServicesDetails({
           </p>
         </div>
 
-        <div className="mb-12 flex flex-wrap gap-3">
+        <div
+          className={`services-tabs mb-12 flex flex-wrap gap-3 ${
+            isVisible ? "services-visible" : ""
+          }`}
+        >
           {categories.map((category) => (
             <button
               key={category}
@@ -254,17 +294,22 @@ export default function ServicesDetails({
           ))}
         </div>
 
-        <div className="space-y-8">
+        <div key={activeCategory} className="space-y-8">
           {activeServices.map((service, index) => {
             const reverse = index % 2 !== 0;
 
             return (
               <div
                 key={service.title}
-                className="grid overflow-hidden rounded-[34px] border border-slate-200 bg-white shadow-sm md:grid-cols-2"
+                className={`service-detail-card grid overflow-hidden rounded-[34px] border border-slate-200 bg-white shadow-sm md:grid-cols-2 ${
+                  isVisible ? "services-visible" : ""
+                }`}
+                style={{
+                  transitionDelay: `${index * 0.12}s`,
+                }}
               >
                 <div className={reverse ? "md:order-2" : ""}>
-                  <div className="relative h-[360px] md:h-full">
+                  <div className="service-detail-image relative h-[360px] md:h-full">
                     <Image
                       src={service.image}
                       alt={service.title}

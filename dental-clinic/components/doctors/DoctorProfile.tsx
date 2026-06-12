@@ -1,4 +1,8 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import "./DoctorProfile.css";
 
 const doctors = [
   {
@@ -9,8 +13,18 @@ const doctors = [
       "Me përvojë të gjatë në stomatologjinë e përgjithshme, Dr. Emri Mbiemri fokusohet në diagnostikimin e hershëm, kujdesin parandalues dhe trajtimet restauruese. Qasja e tij profesionale dhe e kujdesshme ndihmon pacientët të ndihen të sigurt dhe të qetë gjatë çdo vizite.",
     focus:
       "Fokusi i tij është të krijojë një përvojë të rehatshme për pacientin, duke ofruar trajtime të personalizuara dhe zgjidhje afatgjata për shëndetin oral.",
-    stats: ["10+ vite përvojë", "3000+ pacientë", "Kontrolla dentare", "Trajtime restauruese"],
-    specializations: ["Parandalim oral", "Diagnostikim", "Restaurime", "Kujdes familjar"],
+    stats: [
+      "10+ vite përvojë",
+      "3000+ pacientë",
+      "Kontrolla dentare",
+      "Trajtime restauruese",
+    ],
+    specializations: [
+      "Parandalim oral",
+      "Diagnostikim",
+      "Restaurime",
+      "Kujdes familjar",
+    ],
   },
   {
     name: "Dr. Emri Mbiemri",
@@ -20,7 +34,12 @@ const doctors = [
       "E specializuar në trajtime ortodontike moderne, Dr. Emri Mbiemri ndihmon pacientët të përmirësojnë funksionin, kafshimin dhe estetikën e buzëqeshjes së tyre. Çdo plan trajtimi përshtatet sipas nevojave individuale të pacientit.",
     focus:
       "Përmes teknikave bashkëkohore dhe kujdesit të detajuar, ajo synon rezultate natyrale, të qëndrueshme dhe një proces trajtimi sa më komod.",
-    stats: ["8+ vite përvojë", "Aparate fikse", "Aparate transparente", "Planifikim ortodontik"],
+    stats: [
+      "8+ vite përvojë",
+      "Aparate fikse",
+      "Aparate transparente",
+      "Planifikim ortodontik",
+    ],
     specializations: ["Ortodonci", "Smile alignment", "Kafshim korrekt", "Retainer"],
   },
   {
@@ -31,16 +50,51 @@ const doctors = [
       "Me përvojë në kirurgjinë orale, Dr. Emri Mbiemri ofron trajtime të avancuara me fokus në sigurinë, komoditetin dhe mirëqenien e pacientit. Çdo procedurë realizohet me kujdes maksimal dhe planifikim profesional.",
     focus:
       "Ai kombinon ekspertizën klinike me teknologjinë moderne për të siguruar procedura efektive, rikuperim më të lehtë dhe rezultate të qëndrueshme.",
-    stats: ["12+ vite përvojë", "Kirurgji orale", "Ekstraksione", "Trajtime të avancuara"],
+    stats: [
+      "12+ vite përvojë",
+      "Kirurgji orale",
+      "Ekstraksione",
+      "Trajtime të avancuara",
+    ],
     specializations: ["Kirurgji orale", "Implante", "Ekstraksione", "Rikuperim i sigurt"],
   },
 ];
 
 export default function DoctorsProfiles() {
+  const [visibleItems, setVisibleItems] = useState<number[]>([]);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = Number((entry.target as HTMLElement).dataset.index);
+
+          if (entry.isIntersecting) {
+            setVisibleItems((prev) =>
+              prev.includes(index) ? prev : [...prev, index]
+            );
+
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.35,
+      }
+    );
+
+    itemRefs.current.forEach((item) => {
+      if (item) observer.observe(item);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="bg-white px-6 py-24 text-slate-800 md:px-10">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-20 max-w-3xl">
+        <div className="doctors-header mb-20 max-w-3xl">
           <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.35em] text-[#87A5C0]">
             Profilet e Doktorëve
           </p>
@@ -60,13 +114,22 @@ export default function DoctorsProfiles() {
         <div className="space-y-32">
           {doctors.map((doctor, index) => {
             const reverse = index % 2 !== 0;
+            const isVisible = visibleItems.includes(index);
 
             return (
               <div
                 key={`${doctor.name}-${doctor.role}`}
+                ref={(el) => {
+                  itemRefs.current[index] = el;
+                }}
+                data-index={index}
                 className="grid items-center gap-12 md:grid-cols-2"
               >
-                <div className={reverse ? "md:order-2" : ""}>
+                <div
+                  className={`doctor-image-slide ${
+                    reverse ? "md:order-2 doctor-slide-right" : "doctor-slide-left"
+                  } ${isVisible ? "doctor-visible" : ""}`}
+                >
                   <div className="relative h-[560px] overflow-hidden rounded-[36px] bg-slate-100">
                     <Image
                       src={doctor.image}
@@ -77,7 +140,11 @@ export default function DoctorsProfiles() {
                   </div>
                 </div>
 
-                <div className={reverse ? "md:order-1" : ""}>
+                <div
+                  className={`doctor-content-slide ${
+                    reverse ? "md:order-1 doctor-slide-left" : "doctor-slide-right"
+                  } ${isVisible ? "doctor-visible" : ""}`}
+                >
                   <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.35em] text-[#87A5C0]">
                     {doctor.role}
                   </p>

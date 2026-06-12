@@ -1,0 +1,33 @@
+.team-header,
+.team-slider {
+  opacity: 0;
+  transform: translateY(45px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.team-slider {
+  transition-delay: 0.18s;
+}
+
+.team-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.team-card img {
+  transition: transform 1.1s ease;
+}
+
+.team-card:hover img {
+  transform: scale(1.04);
+}
+
+@media (max-width: 768px) {
+  .team-prev {
+    left: -10px;
+  }
+
+  .team-next {
+    right: -10px;
+  }
+}

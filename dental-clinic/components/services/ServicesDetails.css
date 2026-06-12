@@ -1,0 +1,16 @@
+.service-detail-card {
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.service-detail-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+}
+
+.service-detail-image img {
+  transition: transform 1.2s ease;
+}
+
+.service-detail-card:hover .service-detail-image img {
+  transform: scale(1.04);
+}

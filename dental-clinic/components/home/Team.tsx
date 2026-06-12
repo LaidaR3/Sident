@@ -1,9 +1,11 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import Link from "next/link";
+import "./TeamSection.css";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -36,10 +38,42 @@ const doctors = [
 ];
 
 export default function TeamSection() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(section);
+        }
+      },
+      {
+        threshold: 0.25,
+      }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="bg-[#052f5e] px-6 py-20 text-white md:px-10">
+    <section
+      ref={sectionRef}
+      className="bg-[#052f5e] px-6 py-20 text-white md:px-10"
+    >
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div
+          className={`team-header mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end ${
+            isVisible ? "team-visible" : ""
+          }`}
+        >
           <div className="max-w-2xl">
             <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.35em] text-blue-200">
               Ekipi Ynë
@@ -56,7 +90,7 @@ export default function TeamSection() {
           </p>
         </div>
 
-        <div className="relative">
+        <div className={`team-slider relative ${isVisible ? "team-visible" : ""}`}>
           <Swiper
             modules={[Navigation]}
             navigation={{
@@ -72,7 +106,7 @@ export default function TeamSection() {
           >
             {doctors.map((doctor, index) => (
               <SwiperSlide key={`${doctor.role}-${index}`}>
-                <div className="grid min-h-[360px] overflow-hidden rounded-[28px] bg-white text-[#052f5e] shadow-xl md:grid-cols-[45%_55%]">
+                <div className="team-card grid min-h-[360px] overflow-hidden rounded-[28px] bg-white text-[#052f5e] shadow-xl md:grid-cols-[45%_55%]">
                   <div className="relative min-h-[320px] md:min-h-full">
                     <Image
                       src={doctor.image}
@@ -87,20 +121,19 @@ export default function TeamSection() {
                       {doctor.role}
                     </p>
 
-                    <h3 className="text-3xl font-light">
-                      {doctor.name}
-                    </h3>
+                    <h3 className="text-3xl font-light">{doctor.name}</h3>
 
                     <p className="mt-5 text-sm leading-7 text-slate-500">
                       {doctor.text}
                     </p>
+
                     <Link
-  href="/doctors#profiles"
-  className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#052f5e] transition hover:gap-3"
->
-  Lexo më shumë
-  <span>→</span>
-</Link>
+                      href="/doctors#profiles"
+                      className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#052f5e] transition hover:gap-3"
+                    >
+                      Lexo më shumë
+                      <span>→</span>
+                    </Link>
 
                     <div className="mt-8 h-px w-16 bg-[#052f5e]/20" />
                   </div>
