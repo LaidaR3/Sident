@@ -6,8 +6,6 @@ import "./ServicesDetails.css";
 
 const categories = ["Kontrolle", "Estetike", "Restauruese", "Ortodonci"];
 
-
-
 const servicesByCategory = {
   Kontrolle: [
     {
@@ -205,56 +203,56 @@ type ServicesDetailsProps = {
 export default function ServicesDetails({
   initialCategory,
 }: ServicesDetailsProps) {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
   const validCategory =
     initialCategory && categories.includes(initialCategory)
       ? initialCategory
       : "Kontrolle";
 
   const [activeCategory, setActiveCategory] = useState(validCategory);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-
-    if (!section) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(section);
-        }
-      },
-      {
-        threshold: 0.25,
-        rootMargin: "-80px 0px",
-      }
-    );
-
-    observer.observe(section);
-
-    return () => observer.disconnect();
-  }, []);
+  const [visibleCards, setVisibleCards] = useState<number[]>([]);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const activeServices =
     servicesByCategory[activeCategory as keyof typeof servicesByCategory];
 
+  useEffect(() => {
+  setVisibleCards([]);
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const index = Number((entry.target as HTMLElement).dataset.index);
+
+        if (entry.isIntersecting) {
+          setVisibleCards((prev) =>
+            prev.includes(index) ? prev : [...prev, index]
+          );
+
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.35,
+    }
+  );
+
+  const currentCards = cardRefs.current;
+
+  currentCards.forEach((card) => {
+    if (card) observer.observe(card);
+  });
+
+  return () => observer.disconnect();
+}, [activeCategory]);
+
   return (
-<section
-  ref={sectionRef}
-  id="services-details"
-  className={`scroll-mt-24 bg-[#fbfdfe] px-6 py-24 text-slate-800 md:px-10 ${
-    isVisible ? "services-section-visible" : ""
-  }`}
->
+    <section
+      id="services-details"
+      className="scroll-mt-24 bg-[#fbfdfe] px-6 py-24 text-slate-800 md:px-10"
+    >
       <div className="mx-auto max-w-7xl">
-        <div
-          className={`services-header mb-14 flex flex-col justify-between gap-8 md:flex-row md:items-end ${
-            isVisible ? "services-visible" : ""
-          }`}
-        >
+        <div className="mb-14 flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div className="max-w-3xl">
             <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.35em] text-[#87A5C0]">
               Kategoritë e Shërbimeve
@@ -273,21 +271,16 @@ export default function ServicesDetails({
           </p>
         </div>
 
-        <div
-          className={`services-tabs mb-12 flex flex-wrap gap-3 ${
-            isVisible ? "services-visible" : ""
-          }`}
-        >
+        <div className="mb-12 flex flex-wrap gap-3">
           {categories.map((category) => (
             <button
               key={category}
               type="button"
               onClick={() => setActiveCategory(category)}
-              className={`rounded-full border px-6 py-3 text-sm transition-all duration-300 active:scale-95 ${
-                activeCategory === category
+              className={`rounded-full border px-6 py-3 text-sm transition-all duration-300 active:scale-95 ${activeCategory === category
                   ? "border-[#052f5e] bg-[#052f5e] text-white"
                   : "border-slate-200 bg-white text-slate-500 hover:border-[#052f5e] hover:text-[#052f5e]"
-              }`}
+                }`}
             >
               {category}
             </button>
@@ -297,17 +290,21 @@ export default function ServicesDetails({
         <div key={activeCategory} className="space-y-8">
           {activeServices.map((service, index) => {
             const reverse = index % 2 !== 0;
+            const isCardVisible = visibleCards.includes(index);
 
             return (
               <div
-                key={service.title}
-                className={`service-detail-card grid overflow-hidden rounded-[34px] border border-slate-200 bg-white shadow-sm md:grid-cols-2 ${
-                  isVisible ? "services-visible" : ""
-                }`}
-                style={{
-                  transitionDelay: `${index * 0.12}s`,
-                }}
-              >
+  key={`${activeCategory}-${service.title}`}
+  ref={(el) => {
+    cardRefs.current[index] = el;
+  }}
+  data-index={index}
+  className={`service-detail-card ${
+    reverse ? "service-slide-right" : "service-slide-left"
+  } ${
+    visibleCards.includes(index) ? "service-visible" : ""
+  } grid overflow-hidden rounded-[34px] border border-slate-200 bg-white shadow-sm md:grid-cols-2`}
+>
                 <div className={reverse ? "md:order-2" : ""}>
                   <div className="service-detail-image relative h-[360px] md:h-full">
                     <Image
@@ -320,9 +317,8 @@ export default function ServicesDetails({
                 </div>
 
                 <div
-                  className={`flex flex-col justify-center p-8 md:p-12 ${
-                    reverse ? "md:order-1" : ""
-                  }`}
+                  className={`flex flex-col justify-center p-8 md:p-12 ${reverse ? "md:order-1" : ""
+                    }`}
                 >
                   <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-[#87A5C0]">
                     {activeCategory}
