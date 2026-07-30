@@ -2,44 +2,93 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 import "./TeamSection.css";
 
 import "swiper/css";
 import "swiper/css/navigation";
 
-const doctors = [
-  {
-    name: "Dr. Emri Mbiemri",
-    role: "Stomatolog i Përgjithshëm",
-    image: "/images/img4.jpg",
-    text: "Kujdes dentar i përgjithshëm, diagnostikim dhe trajtime parandaluese.",
+const translations = {
+  sq: {
+    eyebrow: "Ekipi Ynë",
+    title: "Njihuni me specialistët tanë",
+    description:
+      "Një ekip profesionistësh të përkushtuar për kujdes dentar cilësor, teknologji moderne dhe përvojë të rehatshme për çdo pacient.",
+    readMore: "Lexo më shumë",
+
+    doctors: [
+      {
+        name: "Dr. Emri Mbiemri",
+        role: "Stomatolog i Përgjithshëm",
+        image: "/images/img4.jpg",
+        text: "Kujdes dentar i përgjithshëm, diagnostikim dhe trajtime parandaluese.",
+      },
+      {
+        name: "Dr. Emri Mbiemri",
+        role: "Ortodont",
+        image: "/images/img5.jpg",
+        text: "Specialiste në drejtimin e dhëmbëve dhe krijimin e buzëqeshjeve të harmonizuara.",
+      },
+      {
+        name: "Dr. Emri Mbiemri",
+        role: "Kirurg Oral",
+        image: "/images/img6.jpg",
+        text: "Trajtime kirurgjikale orale me qasje të sigurt dhe profesionale.",
+      },
+      {
+        name: "Dr. Emri Mbiemri",
+        role: "Endodont",
+        image: "/images/img4.jpg",
+        text: "Trajtime të kanalit të rrënjës me kujdes dhe precizion.",
+      },
+    ],
   },
-  {
-    name: "Dr. Emri Mbiemri",
-    role: "Ortodont",
-    image: "/images/img5.jpg",
-    text: "Specialiste në drejtimin e dhëmbëve dhe krijimin e buzëqeshjeve të harmonizuara.",
+
+  en: {
+    eyebrow: "Our Team",
+    title: "Meet our dental specialists",
+    description:
+      "A dedicated team of professionals focused on high-quality dental care, modern technology, and a comfortable experience for every patient.",
+    readMore: "Read more",
+
+    doctors: [
+      {
+        name: "Dr. First Name Last Name",
+        role: "General Dentist",
+        image: "/images/img4.jpg",
+        text: "General dental care, diagnosis, and preventive treatments.",
+      },
+      {
+        name: "Dr. First Name Last Name",
+        role: "Orthodontist",
+        image: "/images/img5.jpg",
+        text: "Specialized in straightening teeth and creating well-balanced smiles.",
+      },
+      {
+        name: "Dr. First Name Last Name",
+        role: "Oral Surgeon",
+        image: "/images/img6.jpg",
+        text: "Oral surgical treatments provided with a safe and professional approach.",
+      },
+      {
+        name: "Dr. First Name Last Name",
+        role: "Endodontist",
+        image: "/images/img4.jpg",
+        text: "Root canal treatments performed with care and precision.",
+      },
+    ],
   },
-  {
-    name: "Dr. Emri Mbiemri",
-    role: "Kirurg Oral",
-    image: "/images/img6.jpg",
-    text: "Trajtime kirurgjikale orale me qasje të sigurt dhe profesionale.",
-  },
-  {
-    name: "Dr. Emri Mbiemri",
-    role: "Endodont",
-    image: "/images/img4.jpg",
-    text: "Trajtime të kanalit të rrënjës me kujdes dhe precizion.",
-  },
-];
+};
 
 export default function TeamSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+
+  const { language } = useLanguage();
+  const t = translations[language];
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -76,35 +125,38 @@ export default function TeamSection() {
         >
           <div className="max-w-2xl">
             <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.35em] text-blue-200">
-              Ekipi Ynë
+              {t.eyebrow}
             </p>
 
             <h2 className="text-4xl font-light leading-tight md:text-6xl">
-              Njihuni me specialistët tanë
+              {t.title}
             </h2>
           </div>
 
           <p className="max-w-md text-sm leading-7 text-blue-100">
-            Një ekip profesionistësh të përkushtuar për kujdes dentar cilësor,
-            teknologji moderne dhe përvojë të rehatshme për çdo pacient.
+            {t.description}
           </p>
         </div>
 
-        <div className={`team-slider relative ${isVisible ? "team-visible" : ""}`}>
+        <div
+          className={`team-slider relative ${
+            isVisible ? "team-visible" : ""
+          }`}
+        >
           <Swiper
             modules={[Navigation]}
             navigation={{
               prevEl: ".team-prev",
               nextEl: ".team-next",
             }}
-            loop={true}
+            loop
             spaceBetween={24}
             breakpoints={{
               0: { slidesPerView: 1 },
               1024: { slidesPerView: 2 },
             }}
           >
-            {doctors.map((doctor, index) => (
+            {t.doctors.map((doctor, index) => (
               <SwiperSlide key={`${doctor.role}-${index}`}>
                 <div className="team-card grid min-h-[360px] overflow-hidden rounded-[28px] bg-white text-[#052f5e] shadow-xl md:grid-cols-[45%_55%]">
                   <div className="relative min-h-[320px] md:min-h-full">
@@ -131,7 +183,7 @@ export default function TeamSection() {
                       href="/doctors#profiles"
                       className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#052f5e] transition hover:gap-3"
                     >
-                      Lexo më shumë
+                      {t.readMore}
                       <span>→</span>
                     </Link>
 
@@ -144,6 +196,9 @@ export default function TeamSection() {
 
           <button
             type="button"
+            aria-label={
+              language === "sq" ? "Specialisti i mëparshëm" : "Previous specialist"
+            }
             className="team-prev absolute -left-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#052f5e] shadow-xl"
           >
             ←
@@ -151,6 +206,9 @@ export default function TeamSection() {
 
           <button
             type="button"
+            aria-label={
+              language === "sq" ? "Specialisti tjetër" : "Next specialist"
+            }
             className="team-next absolute -right-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#052f5e] shadow-xl"
           >
             →

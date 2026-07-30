@@ -3,8 +3,34 @@
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
+
+const translations = {
+  sq: {
+    title: "Politika e Cookies",
+    text:
+      "Ne përdorim cookies për të përmirësuar përvojën tuaj në faqen tonë dhe për të siguruar funksionimin e duhur të saj. Për më shumë informata, lexoni",
+    cookie: "Politikën e Cookies",
+    privacy: "Politikën e Privatësisë",
+    accept: "Pranoj",
+    later: "Më vonë",
+  },
+
+  en: {
+    title: "Cookie Policy",
+    text:
+      "We use cookies to improve your experience on our website and ensure it functions properly. For more information, please read our",
+    cookie: "Cookie Policy",
+    privacy: "Privacy Policy",
+    accept: "Accept",
+    later: "Later",
+  },
+};
 
 export default function CookieBanner() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -23,25 +49,23 @@ export default function CookieBanner() {
   return (
     <div className="fixed bottom-6 right-6 z-[9999] w-[90%] max-w-sm rounded-2xl bg-white p-5 shadow-[0_20px_60px_rgba(15,23,42,0.25)]">
       <h3 className="text-lg font-semibold text-slate-900">
-        Politika e Cookies
+        {t.title}
       </h3>
 
       <p className="mt-2 text-sm leading-6 text-slate-600">
-        Ne përdorim cookies për të përmirësuar përvojën tuaj në faqen tonë dhe
-        për të siguruar funksionimin e duhur të saj. Për më shumë informata,
-        lexoni{" "}
+        {t.text}{" "}
         <Link
           href="/cookie-policy"
           className="font-semibold text-sky-600 transition hover:text-sky-700"
         >
-          Politikën e Cookies
+          {t.cookie}
         </Link>{" "}
-        dhe{" "}
+        {language === "sq" ? "dhe" : "and"}{" "}
         <Link
           href="/privacy-policy"
           className="font-semibold text-sky-600 transition hover:text-sky-700"
         >
-          Politikën e Privatësisë
+          {t.privacy}
         </Link>
         .
       </p>
@@ -51,14 +75,14 @@ export default function CookieBanner() {
           onClick={acceptCookies}
           className="flex-1 rounded-full bg-sky-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-700"
         >
-          Pranoj
+          {t.accept}
         </button>
 
         <button
           onClick={() => setVisible(false)}
           className="flex-1 rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
         >
-          Më vonë
+          {t.later}
         </button>
       </div>
     </div>

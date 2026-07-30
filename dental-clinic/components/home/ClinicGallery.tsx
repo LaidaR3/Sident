@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 const images = [
   "/images/img1.jpg",
@@ -10,17 +11,40 @@ const images = [
   "/images/img10.jpg",
 ];
 
+const translations = {
+  sq: {
+    eyebrow: "Galeria",
+    title: "Pamje nga",
+    highlight: "Sident",
+    alt: "Sident Dental Clinic",
+  },
+
+  en: {
+    eyebrow: "Gallery",
+    title: "Inside",
+    highlight: "Sident",
+    alt: "Sident Dental Clinic",
+  },
+};
+
 export default function MiniCarousel() {
+  const { language } = useLanguage();
+  const text = translations[language];
+
   return (
     <section className="bg-[#f7fbff] px-6 py-14 md:px-10">
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 flex items-end justify-between">
           <div>
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.3em] text-[#00408a]">
-              Galeria
+              {text.eyebrow}
             </p>
+
             <h2 className="text-3xl font-light text-slate-900 md:text-4xl">
-              Pamje nga <span className="font-semibold text-[#00408a]">Sident</span>
+              {text.title}{" "}
+              <span className="font-semibold text-[#00408a]">
+                {text.highlight}
+              </span>
             </h2>
           </div>
         </div>
@@ -35,7 +59,7 @@ export default function MiniCarousel() {
             >
               <Image
                 src={img}
-                alt="Sident Dental Clinic"
+                alt={text.alt}
                 fill
                 className="object-cover transition duration-700 hover:scale-110"
               />

@@ -2,30 +2,69 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 import "./WhyChooseUs.css";
 
-const items = [
-  {
-    title: "Teknologji Moderne",
-    text: "Përdorim pajisje dhe teknologji bashkëkohore për trajtime më të sakta dhe më komode.",
+const translations = {
+  sq: {
+    eyebrow: "Pse të na zgjidhni ne",
+    titleFirst: "Kujdes profesional",
+    titleSecond: "për buzëqeshjen tuaj.",
+    imageAlt: "Kujdes dentar",
+
+    items: [
+      {
+        title: "Teknologji Moderne",
+        text: "Përdorim pajisje dhe teknologji bashkëkohore për trajtime më të sakta dhe më komode.",
+      },
+      {
+        title: "Kujdes i Personalizuar",
+        text: "Çdo plan trajtimi përshtatet sipas nevojave, dëshirave dhe shëndetit të pacientit.",
+      },
+      {
+        title: "Komoditet në Çdo Vizitë",
+        text: "Një ambient i qetë dhe mikpritës që ju bën të ndiheni rehat gjatë çdo trajtimi.",
+      },
+      {
+        title: "Rezultate Natyrale",
+        text: "Fokusohemi në buzëqeshje të shëndetshme, estetike dhe me pamje natyrale.",
+      },
+    ],
   },
-  {
-    title: "Kujdes i Personalizuar",
-    text: "Çdo plan trajtimi përshtatet sipas nevojave, dëshirave dhe shëndetit të pacientit.",
+
+  en: {
+    eyebrow: "Why Choose Us",
+    titleFirst: "Professional care",
+    titleSecond: "for your smile.",
+    imageAlt: "Dental care",
+
+    items: [
+      {
+        title: "Modern Technology",
+        text: "We use modern equipment and advanced technology for more precise and comfortable treatments.",
+      },
+      {
+        title: "Personalized Care",
+        text: "Every treatment plan is tailored to the patient’s needs, preferences, and oral health.",
+      },
+      {
+        title: "Comfort at Every Visit",
+        text: "A calm and welcoming environment designed to help you feel comfortable throughout every treatment.",
+      },
+      {
+        title: "Natural-Looking Results",
+        text: "We focus on healthy, aesthetic smiles with natural-looking results.",
+      },
+    ],
   },
-  {
-    title: "Komoditet në Çdo Vizitë",
-    text: "Një ambient i qetë dhe mikpritës që ju bën të ndiheni rehat gjatë çdo trajtimi.",
-  },
-  {
-    title: "Rezultate Natyrale",
-    text: "Fokusohemi në buzëqeshje të shëndetshme, estetike dhe me pamje natyrale.",
-  },
-];
+};
 
 export default function WhyChooseUs() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+
+  const { language } = useLanguage();
+  const t = translations[language];
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -62,7 +101,7 @@ export default function WhyChooseUs() {
                 isVisible ? "why-visible" : ""
               }`}
             >
-              Pse të na zgjidhni ne
+              {t.eyebrow}
             </p>
 
             <h2
@@ -70,29 +109,29 @@ export default function WhyChooseUs() {
                 isVisible ? "why-visible" : ""
               }`}
             >
-              Kujdes profesional
+              {t.titleFirst}
               <br />
-              për buzëqeshjen tuaj.
+              {t.titleSecond}
             </h2>
 
             <div className="mt-8 border-t border-[#243856]/15 md:mt-12">
-              {items.map((item, index) => (
+              {t.items.map((item, index) => (
                 <div
                   key={item.title}
                   className={`why-slide-left why-item group border-b border-[#243856]/15 py-5 transition-all duration-500 md:py-7 ${
                     index === 0
                       ? "why-delay-200"
                       : index === 1
-                      ? "why-delay-300"
-                      : index === 2
-                      ? "why-delay-400"
-                      : "why-delay-500"
+                        ? "why-delay-300"
+                        : index === 2
+                          ? "why-delay-400"
+                          : "why-delay-500"
                   } ${isVisible ? "why-visible" : ""}`}
                 >
                   <div className="flex items-start justify-between gap-4 md:gap-8">
                     <div className="flex gap-4 md:gap-6">
                       <span className="pt-1 text-xs text-[#243856]/40 transition md:text-sm md:group-hover:text-[#243856]">
-                        0{index + 1}
+                        {String(index + 1).padStart(2, "0")}
                       </span>
 
                       <div>
@@ -122,7 +161,7 @@ export default function WhyChooseUs() {
           >
             <Image
               src="/images/img3.jpg"
-              alt="Dental care"
+              alt={t.imageAlt}
               fill
               className="object-cover"
             />
