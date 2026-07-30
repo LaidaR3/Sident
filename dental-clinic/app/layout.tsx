@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "../components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/layout/CookieBanner";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -29,6 +30,7 @@ export default function RootLayout({
 
         <Footer />
 
+<ScrollToTop />
         <CookieBanner />
       </body>
     </html>
