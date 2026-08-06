@@ -51,7 +51,7 @@ export default function StorySection() {
         <div className="relative">
           <div className="relative h-[560px] overflow-hidden rounded-[36px]">
             <Image
-              src="/images/img12.jpg"
+              src="/images/img19.jpg"
               alt="Historia e Sident Dental Clinic"
               fill
               className="object-cover"

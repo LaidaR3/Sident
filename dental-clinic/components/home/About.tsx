@@ -87,7 +87,7 @@ export default function AboutSection() {
             <div className="relative">
               <div className="about-image relative h-[360px] overflow-hidden rounded-[28px] md:h-[560px] md:rounded-[36px]">
                 <Image
-                  src="/images/img2.jpg"
+                  src="/images/img16.jpg"
                   alt="Sident Dental Clinic"
                   fill
                   className="object-cover"

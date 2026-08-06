@@ -21,28 +21,34 @@ const translations = {
 
     doctors: [
       {
-        name: "Dr. Emri Mbiemri",
-        role: "Stomatolog i Përgjithshëm",
+        name: "Prof. Dr. Sinan Rusinovci",
+        role: "Kirurg Maksilofacial",
         image: "/images/img4.jpg",
-        text: "Kujdes dentar i përgjithshëm, diagnostikim dhe trajtime parandaluese.",
+        text: "Diagnostikim dhe trajtim kirurgjikal i semundjeve, demtimeve dhe anomalive te gojes, nofullave dhe regjionit te fytyres.",
       },
       {
-        name: "Dr. Emri Mbiemri",
-        role: "Ortodont",
-        image: "/images/img5.jpg",
-        text: "Specialiste në drejtimin e dhëmbëve dhe krijimin e buzëqeshjeve të harmonizuara.",
-      },
-      {
-        name: "Dr. Emri Mbiemri",
+        name: "Dr. Enis Beka",
         role: "Kirurg Oral",
-        image: "/images/img6.jpg",
-        text: "Trajtime kirurgjikale orale me qasje të sigurt dhe profesionale.",
+        image: "/images/img5.jpg",
+        text: "Trajtime kirurgjikale orale, duke perfshire nxjerrjen e dhembeve, nderhyrjet ne indet orale dhe procedura te tjera kirurgjikale.",
       },
       {
-        name: "Dr. Emri Mbiemri",
-        role: "Endodont",
+        name: "Dr. Arbereshe Pnishi-Berisha",
+        role: "Ortodonte",
+        image: "/images/img6.jpg",
+        text: "Diagnostikim dhe trajtim i crregullimeve te pozicionit te dhembeve dhe nofullave per nje kafshim funksional dhe buzeqeshje harmonike.",
+      },
+      {
+        name: "Dr. Blerta Rusinovci",
+        role: "Stomatologe",
         image: "/images/img4.jpg",
-        text: "Trajtime të kanalit të rrënjës me kujdes dhe precizion.",
+        text: "Kontrolle stomatologjike, diagnostikim, trajtime parandaluese dhe restauruese per ruajtjen e shendetit oral.",
+      },
+      {
+        name: "Dr. Floreta Jusufi",
+        role: "Asistente Stomatologjike",
+        image: "/images/img4.jpg",
+        text: "Asistence profesionale gjate trajtimeve stomatologjike dhe kujdes per komoditetin dhe sigurine e pacienteve.",
       },
     ],
   },
@@ -56,28 +62,34 @@ const translations = {
 
     doctors: [
       {
-        name: "Dr. First Name Last Name",
+        name: "Prof. Dr. Sinan Rusinovci",
+        role: "Maxillofacial Surgeon",
+        image: "/images/img4.jpg",
+        text: "Diagnosis and surgical treatment of diseases, injuries, and abnormalities affecting the mouth, jaws, and facial region.",
+      },
+      {
+        name: "Dr. Enis Beka",
+        role: "Oral Surgeon",
+        image: "/images/img5.jpg",
+        text: "Oral surgical treatments, including tooth extractions, procedures involving oral tissues, and other surgical interventions.",
+      },
+      {
+        name: "Dr. Arbereshe Pnishi-Berisha",
+        role: "Orthodontist",
+        image: "/images/img6.jpg",
+        text: "Diagnosis and treatment of tooth and jaw alignment issues to achieve a functional bite and a harmonious smile.",
+      },
+      {
+        name: "Dr. Blerta Rusinovci",
         role: "General Dentist",
         image: "/images/img4.jpg",
-        text: "General dental care, diagnosis, and preventive treatments.",
+        text: "Dental examinations, diagnosis, preventive care, and restorative treatments focused on maintaining long-term oral health.",
       },
       {
-        name: "Dr. First Name Last Name",
-        role: "Orthodontist",
-        image: "/images/img5.jpg",
-        text: "Specialized in straightening teeth and creating well-balanced smiles.",
-      },
-      {
-        name: "Dr. First Name Last Name",
-        role: "Oral Surgeon",
-        image: "/images/img6.jpg",
-        text: "Oral surgical treatments provided with a safe and professional approach.",
-      },
-      {
-        name: "Dr. First Name Last Name",
-        role: "Endodontist",
+        name: "Dr. Floreta Jusufi",
+        role: "Dental Assistant",
         image: "/images/img4.jpg",
-        text: "Root canal treatments performed with care and precision.",
+        text: "Professional assistance during dental procedures while helping ensure patient comfort, safety, and quality care.",
       },
     ],
   },
@@ -119,9 +131,8 @@ export default function TeamSection() {
     >
       <div className="mx-auto max-w-7xl">
         <div
-          className={`team-header mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end ${
-            isVisible ? "team-visible" : ""
-          }`}
+          className={`team-header mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end ${isVisible ? "team-visible" : ""
+            }`}
         >
           <div className="max-w-2xl">
             <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.35em] text-blue-200">
@@ -139,9 +150,8 @@ export default function TeamSection() {
         </div>
 
         <div
-          className={`team-slider relative ${
-            isVisible ? "team-visible" : ""
-          }`}
+          className={`team-slider relative ${isVisible ? "team-visible" : ""
+            }`}
         >
           <Swiper
             modules={[Navigation]}
@@ -183,8 +193,8 @@ export default function TeamSection() {
                       href="/doctors#profiles"
                       className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#052f5e] transition hover:gap-3"
                     >
-                      {t.readMore}
-                      <span>→</span>
+                      {/* {t.readMore}
+                      <span>→</span> */}
                     </Link>
 
                     <div className="mt-8 h-px w-16 bg-[#052f5e]/20" />

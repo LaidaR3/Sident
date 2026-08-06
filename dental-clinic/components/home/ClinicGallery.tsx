@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
 const images = [
-  "/images/img1.jpg",
-  "/images/img2.jpg",
+  "/images/img17.jpg",
+  "/images/img8.jpg",
   "/images/img3.jpg",
   "/images/img4.jpg",
   "/images/img10.jpg",

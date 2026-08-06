@@ -6,8 +6,8 @@ import "./DoctorProfile.css";
 
 const doctors = [
   {
-    name: "Dr. Emri Mbiemri",
-    role: "Stomatolog i Përgjithshëm",
+    name: "Prof. Dr. Sinan Rusinovci",
+    role: "Kirurg Maksiollofacial",
     image: "/images/img4.jpg",
     description:
       "Me përvojë të gjatë në stomatologjinë e përgjithshme, Dr. Emri Mbiemri fokusohet në diagnostikimin e hershëm, kujdesin parandalues dhe trajtimet restauruese. Qasja e tij profesionale dhe e kujdesshme ndihmon pacientët të ndihen të sigurt dhe të qetë gjatë çdo vizite.",
@@ -27,8 +27,8 @@ const doctors = [
     ],
   },
   {
-    name: "Dr. Emri Mbiemri",
-    role: "Ortodont",
+    name: "Dr. Enis Beka",
+    role: "Kirurg Oral",
     image: "/images/img5.jpg",
     description:
       "E specializuar në trajtime ortodontike moderne, Dr. Emri Mbiemri ndihmon pacientët të përmirësojnë funksionin, kafshimin dhe estetikën e buzëqeshjes së tyre. Çdo plan trajtimi përshtatet sipas nevojave individuale të pacientit.",
@@ -43,8 +43,40 @@ const doctors = [
     specializations: ["Ortodonci", "Smile alignment", "Kafshim korrekt", "Retainer"],
   },
   {
-    name: "Dr. Emri Mbiemri",
-    role: "Kirurg Oral",
+    name: "Dr. Arbëreshë Pnishi - Berisha",
+    role: "Ortodonte",
+    image: "/images/img6.jpg",
+    description:
+      "Me përvojë në kirurgjinë orale, Dr. Emri Mbiemri ofron trajtime të avancuara me fokus në sigurinë, komoditetin dhe mirëqenien e pacientit. Çdo procedurë realizohet me kujdes maksimal dhe planifikim profesional.",
+    focus:
+      "Ai kombinon ekspertizën klinike me teknologjinë moderne për të siguruar procedura efektive, rikuperim më të lehtë dhe rezultate të qëndrueshme.",
+    stats: [
+      "12+ vite përvojë",
+      "Kirurgji orale",
+      "Ekstraksione",
+      "Trajtime të avancuara",
+    ],
+    specializations: ["Kirurgji orale", "Implante", "Ekstraksione", "Rikuperim i sigurt"],
+  },
+  {
+    name: "Dr. Blerta Rusinovci ",
+    role: "Stomatologe",
+    image: "/images/img6.jpg",
+    description:
+      "Me përvojë në kirurgjinë orale, Dr. Emri Mbiemri ofron trajtime të avancuara me fokus në sigurinë, komoditetin dhe mirëqenien e pacientit. Çdo procedurë realizohet me kujdes maksimal dhe planifikim profesional.",
+    focus:
+      "Ai kombinon ekspertizën klinike me teknologjinë moderne për të siguruar procedura efektive, rikuperim më të lehtë dhe rezultate të qëndrueshme.",
+    stats: [
+      "12+ vite përvojë",
+      "Kirurgji orale",
+      "Ekstraksione",
+      "Trajtime të avancuara",
+    ],
+    specializations: ["Kirurgji orale", "Implante", "Ekstraksione", "Rikuperim i sigurt"],
+  },
+  {
+    name: "Floreta Jusufi",
+    role: "Asistente",
     image: "/images/img6.jpg",
     description:
       "Me përvojë në kirurgjinë orale, Dr. Emri Mbiemri ofron trajtime të avancuara me fokus në sigurinë, komoditetin dhe mirëqenien e pacientit. Çdo procedurë realizohet me kujdes maksimal dhe planifikim profesional.",
@@ -126,9 +158,8 @@ export default function DoctorsProfiles() {
                 className="grid items-center gap-12 md:grid-cols-2"
               >
                 <div
-                  className={`doctor-image-slide ${
-                    reverse ? "md:order-2 doctor-slide-right" : "doctor-slide-left"
-                  } ${isVisible ? "doctor-visible" : ""}`}
+                  className={`doctor-image-slide ${reverse ? "md:order-2 doctor-slide-right" : "doctor-slide-left"
+                    } ${isVisible ? "doctor-visible" : ""}`}
                 >
                   <div className="relative h-[560px] overflow-hidden rounded-[36px] bg-slate-100">
                     <Image
@@ -141,9 +172,8 @@ export default function DoctorsProfiles() {
                 </div>
 
                 <div
-                  className={`doctor-content-slide ${
-                    reverse ? "md:order-1 doctor-slide-left" : "doctor-slide-right"
-                  } ${isVisible ? "doctor-visible" : ""}`}
+                  className={`doctor-content-slide ${reverse ? "md:order-1 doctor-slide-left" : "doctor-slide-right"
+                    } ${isVisible ? "doctor-visible" : ""}`}
                 >
                   <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.35em] text-[#87A5C0]">
                     {doctor.role}

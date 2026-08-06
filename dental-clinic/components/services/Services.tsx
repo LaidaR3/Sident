@@ -10,7 +10,7 @@ const servicesByCategory = {
   Kontrolle: [
     {
       title: "Kontrolla Dentare",
-      image: "/images/img2.jpg",
+      image: "/images/img19.jpg",
       duration: "30-45 minuta",
       text: "Kontrollë e detajuar për vlerësimin e shëndetit oral, zbulimin e hershëm të problemeve dhe parandalimin e komplikimeve dentare.",
       benefits: [
@@ -21,7 +21,7 @@ const servicesByCategory = {
     },
     {
       title: "Pastrimi Profesional",
-      image: "/images/img3.jpg",
+      image: "/images/img18.jpg",
       duration: "45-60 minuta",
       text: "Pastrim profesional për largimin e gurëzave, pllakës bakteriale dhe njollave sipërfaqësore.",
       benefits: [
@@ -32,7 +32,7 @@ const servicesByCategory = {
     },
     {
       title: "Kontrolla e Mishrave",
-      image: "/images/img2.jpg",
+      image: "/images/img21.jpg",
       duration: "30-45 minuta",
       text: "Vlerësim profesional i shëndetit të mishrave për të parandaluar inflamacionin, gjakderdhjen dhe problemet periodontale.",
       benefits: [
@@ -43,7 +43,7 @@ const servicesByCategory = {
     },
     {
       title: "Këshillim Oral",
-      image: "/images/img10.jpg",
+      image: "/images/img3.jpg",
       duration: "20-30 minuta",
       text: "Këshillim i personalizuar për kujdesin e përditshëm oral dhe zgjedhjen e trajtimeve më të përshtatshme.",
       benefits: [
@@ -57,7 +57,7 @@ const servicesByCategory = {
   Estetike: [
     {
       title: "Zbardhimi i Dhëmbëve",
-      image: "/images/img7.jpg",
+      image: "/images/img17.jpg",
       duration: "45-60 minuta",
       text: "Trajtim i sigurt estetik për një buzëqeshje më të bardhë, më të pastër dhe më të ndritshme.",
       benefits: [
@@ -79,7 +79,7 @@ const servicesByCategory = {
     },
     {
       title: "Bonding Estetik",
-      image: "/images/img9.jpg",
+      image: "/images/img26.jpg",
       duration: "30-60 minuta",
       text: "Zgjidhje e shpejtë estetike për korrigjimin e defekteve të vogla, hapësirave ose dëmtimeve sipërfaqësore.",
       benefits: [
@@ -90,7 +90,7 @@ const servicesByCategory = {
     },
     {
       title: "Smile Design",
-      image: "/images/img9.jpg",
+      image: "/images/img25.jpg",
       duration: "Sipas planit individual",
       text: "Planifikim estetik i buzëqeshjes duke marrë parasysh formën, ngjyrën dhe harmoninë e dhëmbëve.",
       benefits: [
@@ -104,7 +104,7 @@ const servicesByCategory = {
   Restauruese: [
     {
       title: "Kurora Dentare",
-      image: "/images/img1.jpg",
+      image: "/images/img33.jpg",
       duration: "2-3 vizita",
       text: "Restaurime me pamje natyrale për dhëmbë të dëmtuar, duke përmirësuar funksionin dhe estetikën.",
       benefits: [
@@ -115,7 +115,7 @@ const servicesByCategory = {
     },
     {
       title: "Ura Dentare",
-      image: "/images/img2.jpg",
+      image: "/images/img31.jpg",
       duration: "2-3 vizita",
       text: "Zëvendësim i dhëmbëve që mungojnë me zgjidhje të qëndrueshme dhe estetike.",
       benefits: [
@@ -126,7 +126,7 @@ const servicesByCategory = {
     },
     {
       title: "Mbushje Dentare",
-      image: "/images/img3.jpg",
+      image: "/images/img29.jpg",
       duration: "30-60 minuta",
       text: "Mbushje estetike për trajtimin e dhëmbëve të dëmtuar ose të prishur.",
       benefits: [
@@ -137,7 +137,7 @@ const servicesByCategory = {
     },
     {
       title: "Inlay & Onlay",
-      image: "/images/img4.jpg",
+      image: "/images/img32.jpg",
       duration: "1-2 vizita",
       text: "Restaurime precize për forcimin dhe ruajtjen e strukturës së dhëmbit.",
       benefits: [
@@ -151,7 +151,7 @@ const servicesByCategory = {
   Ortodonci: [
     {
       title: "Aparate Fikse",
-      image: "/images/img12.jpg",
+      image: "/images/img27.jpg",
       duration: "Sipas planit ortodontik",
       text: "Trajtim ortodontik për drejtimin e dhëmbëve dhe përmirësimin e kafshimit.",
       benefits: [
@@ -162,7 +162,7 @@ const servicesByCategory = {
     },
     {
       title: "Aparate Transparente",
-      image: "/images/img6.jpg",
+      image: "/images/img24.jpg",
       duration: "Sipas planit ortodontik",
       text: "Zgjidhje diskrete dhe moderne për drejtimin e dhëmbëve me komoditet më të madh.",
       benefits: [
@@ -173,7 +173,7 @@ const servicesByCategory = {
     },
     {
       title: "Konsultë Ortodontike",
-      image: "/images/img7.jpg",
+      image: "/images/img28.jpg",
       duration: "30-45 minuta",
       text: "Vlerësim profesional për përcaktimin e planit më të mirë ortodontik sipas nevojave të pacientit.",
       benefits: [
@@ -184,7 +184,7 @@ const servicesByCategory = {
     },
     {
       title: "Retainer",
-      image: "/images/img8.jpg",
+      image: "/images/img22.jpg",
       duration: "Sipas rastit",
       text: "Ruajtje e rezultatit pas trajtimit ortodontik për stabilitet afatgjatë.",
       benefits: [
@@ -216,35 +216,35 @@ export default function ServicesDetails({
     servicesByCategory[activeCategory as keyof typeof servicesByCategory];
 
   useEffect(() => {
-  setVisibleCards([]);
+    setVisibleCards([]);
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        const index = Number((entry.target as HTMLElement).dataset.index);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = Number((entry.target as HTMLElement).dataset.index);
 
-        if (entry.isIntersecting) {
-          setVisibleCards((prev) =>
-            prev.includes(index) ? prev : [...prev, index]
-          );
+          if (entry.isIntersecting) {
+            setVisibleCards((prev) =>
+              prev.includes(index) ? prev : [...prev, index]
+            );
 
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.35,
-    }
-  );
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.35,
+      }
+    );
 
-  const currentCards = cardRefs.current;
+    const currentCards = cardRefs.current;
 
-  currentCards.forEach((card) => {
-    if (card) observer.observe(card);
-  });
+    currentCards.forEach((card) => {
+      if (card) observer.observe(card);
+    });
 
-  return () => observer.disconnect();
-}, [activeCategory]);
+    return () => observer.disconnect();
+  }, [activeCategory]);
 
   return (
     <section
@@ -278,8 +278,8 @@ export default function ServicesDetails({
               type="button"
               onClick={() => setActiveCategory(category)}
               className={`rounded-full border px-6 py-3 text-sm transition-all duration-300 active:scale-95 ${activeCategory === category
-                  ? "border-[#052f5e] bg-[#052f5e] text-white"
-                  : "border-slate-200 bg-white text-slate-500 hover:border-[#052f5e] hover:text-[#052f5e]"
+                ? "border-[#052f5e] bg-[#052f5e] text-white"
+                : "border-slate-200 bg-white text-slate-500 hover:border-[#052f5e] hover:text-[#052f5e]"
                 }`}
             >
               {category}
@@ -294,17 +294,15 @@ export default function ServicesDetails({
 
             return (
               <div
-  key={`${activeCategory}-${service.title}`}
-  ref={(el) => {
-    cardRefs.current[index] = el;
-  }}
-  data-index={index}
-  className={`service-detail-card ${
-    reverse ? "service-slide-right" : "service-slide-left"
-  } ${
-    visibleCards.includes(index) ? "service-visible" : ""
-  } grid overflow-hidden rounded-[34px] border border-slate-200 bg-white shadow-sm md:grid-cols-2`}
->
+                key={`${activeCategory}-${service.title}`}
+                ref={(el) => {
+                  cardRefs.current[index] = el;
+                }}
+                data-index={index}
+                className={`service-detail-card ${reverse ? "service-slide-right" : "service-slide-left"
+                  } ${visibleCards.includes(index) ? "service-visible" : ""
+                  } grid overflow-hidden rounded-[34px] border border-slate-200 bg-white shadow-sm md:grid-cols-2`}
+              >
                 <div className={reverse ? "md:order-2" : ""}>
                   <div className="service-detail-image relative h-[360px] md:h-full">
                     <Image
