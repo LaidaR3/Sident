@@ -1,32 +1,75 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 import "./MissionVision.css";
 
-const cards = [
-  {
-    number: "01",
-    label: "Misioni",
-    title: "Kujdes i Personalizuar",
-    text: "Të ofrojmë kujdes dentar profesional, të sigurt dhe të personalizuar për çdo pacient, duke kombinuar ekspertizën, teknologjinë moderne dhe përkushtimin njerëzor.",
+const translations = {
+  sq: {
+    eyebrow: "Misioni & Vizioni",
+    title1: "Parimet mbi të cilat",
+    title2: "ndërtojmë besimin",
+    description:
+      "Çdo vendim, trajtim dhe përvojë në klinikën tonë bazohet në profesionalizëm, kujdes dhe përkushtim ndaj pacientëve.",
+
+    cards: [
+      {
+        number: "01",
+        label: "Misioni",
+        title: "Kujdes i Personalizuar",
+        text: "Të ofrojmë kujdes dentar profesional, të sigurt dhe të personalizuar për çdo pacient, duke kombinuar ekspertizën, teknologjinë moderne dhe përkushtimin njerëzor.",
+      },
+      {
+        number: "02",
+        label: "Vizioni",
+        title: "Standarde Moderne",
+        text: "Të jemi një nga klinikat dentare më të besuara, duke vendosur standarde të larta në cilësi, inovacion dhe përvojën e pacientit.",
+      },
+      {
+        number: "03",
+        label: "Vlerat",
+        title: "Besim & Integritet",
+        text: "Profesionalizëm, integritet, kujdes ndaj pacientit, siguri dhe përmirësim i vazhdueshëm në çdo shërbim që ofrojmë.",
+      },
+    ],
   },
-  {
-    number: "02",
-    label: "Vizioni",
-    title: "Standarde Moderne",
-    text: "Të jemi një nga klinikat dentare më të besuara, duke vendosur standarde të larta në cilësi, inovacion dhe përvojën e pacientit.",
+
+  en: {
+    eyebrow: "Mission & Vision",
+    title1: "The principles on which",
+    title2: "we build trust",
+    description:
+      "Every decision, treatment, and patient experience in our clinic is built on professionalism, care, and dedication.",
+
+    cards: [
+      {
+        number: "01",
+        label: "Mission",
+        title: "Personalized Care",
+        text: "To provide professional, safe, and personalized dental care for every patient by combining expertise, modern technology, and genuine human care.",
+      },
+      {
+        number: "02",
+        label: "Vision",
+        title: "Modern Standards",
+        text: "To become one of the most trusted dental clinics by setting high standards in quality, innovation, and patient experience.",
+      },
+      {
+        number: "03",
+        label: "Values",
+        title: "Trust & Integrity",
+        text: "Professionalism, integrity, patient-centered care, safety, and continuous improvement in every service we provide.",
+      },
+    ],
   },
-  {
-    number: "03",
-    label: "Vlerat",
-    title: "Besim & Integritet",
-    text: "Profesionalizëm, integritet, kujdes ndaj pacientit, siguri dhe përmirësim i vazhdueshëm në çdo shërbim që ofrojmë.",
-  },
-];
+};
 
 export default function MissionVision() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+
+  const { language } = useLanguage();
+  const t = translations[language];
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -41,8 +84,8 @@ export default function MissionVision() {
         }
       },
       {
-         rootMargin: "-100px 0px",
-    threshold: 0.5,
+        rootMargin: "-100px 0px",
+        threshold: 0.5,
       }
     );
 
@@ -63,23 +106,22 @@ export default function MissionVision() {
           }`}
         >
           <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.35em] text-[#052f5e]/60">
-            Misioni & Vizioni
+            {t.eyebrow}
           </p>
 
           <h2 className="text-4xl font-light leading-tight text-slate-900 md:text-6xl">
-            Parimet mbi të cilat
+            {t.title1}
             <br />
-            <span className="text-[#052f5e]">ndërtojmë besimin</span>
+            <span className="text-[#052f5e]">{t.title2}</span>
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-slate-600">
-            Çdo vendim, trajtim dhe përvojë në klinikën tonë bazohet
-            në profesionalizëm, kujdes dhe përkushtim ndaj pacientëve.
+            {t.description}
           </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {cards.map((card, index) => (
+          {t.cards.map((card, index) => (
             <div
               key={card.number}
               className={`mission-card group relative overflow-hidden rounded-[32px] border border-white/40 bg-white/50 p-8 backdrop-blur-sm transition-all duration-500 hover:-translate-y-3 hover:bg-white/70 hover:shadow-2xl ${

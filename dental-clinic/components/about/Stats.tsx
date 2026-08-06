@@ -2,11 +2,75 @@
 
 import { useEffect, useRef, useState } from "react";
 import Counter from "../ui/Counter";
+import { useLanguage } from "@/context/LanguageContext";
 import "./StatsSection.css";
+
+const translations = {
+  sq: {
+    eyebrow: "Në Shifra",
+    titleFirst: "Besimi i pacientëve",
+    titleSecond: "në çdo buzëqeshje",
+
+    stats: [
+      {
+        end: 15,
+        suffix: "+",
+        label: "Vite Eksperiencë",
+      },
+      {
+        end: 10,
+        suffix: "K+",
+        label: "Pacientë të Kënaqur",
+      },
+      {
+        end: 20,
+        suffix: "K+",
+        label: "Trajtime të Realizuara",
+      },
+      {
+        end: 100,
+        suffix: "%",
+        label: "Përkushtim ndaj Cilësisë",
+      },
+    ],
+  },
+
+  en: {
+    eyebrow: "By the Numbers",
+    titleFirst: "Patient trust",
+    titleSecond: "in every smile",
+
+    stats: [
+      {
+        end: 15,
+        suffix: "+",
+        label: "Years of Experience",
+      },
+      {
+        end: 10,
+        suffix: "K+",
+        label: "Satisfied Patients",
+      },
+      {
+        end: 20,
+        suffix: "K+",
+        label: "Treatments Completed",
+      },
+      {
+        end: 100,
+        suffix: "%",
+        label: "Commitment to Quality",
+      },
+    ],
+  },
+};
 
 export default function StatsSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+
+  const { language } = useLanguage();
+  const t = translations[language];
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -30,29 +94,6 @@ export default function StatsSection() {
     return () => observer.disconnect();
   }, []);
 
-  const stats = [
-    {
-      end: 15,
-      suffix: "+",
-      label: "Vite Eksperiencë",
-    },
-    {
-      end: 10,
-      suffix: "K+",
-      label: "Pacientë të Kënaqur",
-    },
-    {
-      end: 20,
-      suffix: "K+",
-      label: "Trajtime të Realizuara",
-    },
-    {
-      end: 100,
-      suffix: "%",
-      label: "Përkushtim ndaj Cilësisë",
-    },
-  ];
-
   return (
     <section
       ref={sectionRef}
@@ -65,18 +106,18 @@ export default function StatsSection() {
           }`}
         >
           <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.35em] text-blue-200">
-            Në Shifra
+            {t.eyebrow}
           </p>
 
           <h2 className="text-4xl font-light leading-tight md:text-6xl">
-            Besimi i pacientëve
+            {t.titleFirst}
             <br />
-            në çdo buzëqeshje
+            {t.titleSecond}
           </h2>
         </div>
 
         <div className="mt-16 grid gap-10 md:grid-cols-4">
-          {stats.map((stat, index) => (
+          {t.stats.map((stat, index) => (
             <div
               key={stat.label}
               className={`stats-card text-center ${

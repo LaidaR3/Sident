@@ -2,30 +2,73 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 import "./TechFacilities.css";
 
-const facilities = [
-  {
-    title: "Pajisje Moderne",
-    text: "Teknologji bashkëkohore për trajtime më të sakta, më të sigurta dhe më efikase.",
+const translations = {
+  sq: {
+    eyebrow: "Teknologji & Ambient",
+    titleFirst: "Një hapësirë moderne",
+    titleSecond: "për kujdes të sigurt",
+    description:
+      "Klinika jonë është projektuar për të ofruar rehati, pastërti dhe siguri në çdo vizitë, duke kombinuar ambientin modern me teknologji të avancuar dentare.",
+    imageAlt: "Teknologji dhe ambient i klinikës",
+
+    facilities: [
+      {
+        title: "Pajisje Moderne",
+        text: "Teknologji bashkëkohore për trajtime më të sakta, më të sigurta dhe më efikase.",
+      },
+      {
+        title: "Ambient Steril",
+        text: "Higjienë dhe sterilizim sipas standardeve të larta për sigurinë e çdo pacienti.",
+      },
+      {
+        title: "Diagnostikim Preciz",
+        text: "Vlerësim i kujdesshëm dhe plan trajtimi i personalizuar për çdo rast.",
+      },
+      {
+        title: "Komoditet Maksimal",
+        text: "Hapësirë e qetë dhe mikpritëse për një përvojë sa më të rehatshme.",
+      },
+    ],
   },
-  {
-    title: "Ambient Steril",
-    text: "Higjienë dhe sterilizim sipas standardeve të larta për sigurinë e çdo pacienti.",
+
+  en: {
+    eyebrow: "Technology & Facilities",
+    titleFirst: "A modern environment",
+    titleSecond: "for safe dental care",
+    description:
+      "Our clinic is designed to provide comfort, cleanliness, and safety at every visit by combining a modern environment with advanced dental technology.",
+    imageAlt: "Technology and facilities at Sident Dental Clinic",
+
+    facilities: [
+      {
+        title: "Modern Equipment",
+        text: "Advanced technology for more precise, safer, and more efficient treatments.",
+      },
+      {
+        title: "Sterile Environment",
+        text: "High standards of hygiene and sterilization to protect every patient.",
+      },
+      {
+        title: "Precise Diagnosis",
+        text: "Careful assessment and a personalized treatment plan for every case.",
+      },
+      {
+        title: "Maximum Comfort",
+        text: "A calm and welcoming space designed for a comfortable experience.",
+      },
+    ],
   },
-  {
-    title: "Diagnostikim Preciz",
-    text: "Vlerësim i kujdesshëm dhe plan trajtimi i personalizuar për çdo rast.",
-  },
-  {
-    title: "Komoditet Maksimal",
-    text: "Hapësirë e qetë dhe mikpritëse për një përvojë sa më të rehatshme.",
-  },
-];
+};
 
 export default function TechnologyFacilities() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+
+  const { language } = useLanguage();
+  const t = translations[language];
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -62,20 +105,18 @@ export default function TechnologyFacilities() {
         >
           <div>
             <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.35em] text-[#87A5C0]">
-              Teknologji & Ambient
+              {t.eyebrow}
             </p>
 
             <h2 className="text-4xl font-light leading-tight md:text-6xl">
-              Një hapësirë moderne
+              {t.titleFirst}
               <br />
-              <span className="text-[#052f5e]">për kujdes të sigurt</span>
+              <span className="text-[#052f5e]">{t.titleSecond}</span>
             </h2>
           </div>
 
           <p className="max-w-xl text-sm leading-7 text-slate-500 md:ml-auto">
-            Klinika jonë është projektuar për të ofruar rehati, pastërti dhe
-            siguri në çdo vizitë, duke kombinuar ambientin modern me teknologji
-            të avancuar dentare.
+            {t.description}
           </p>
         </div>
 
@@ -87,14 +128,14 @@ export default function TechnologyFacilities() {
           >
             <Image
               src="/images/img13.jpg"
-              alt="Teknologji dhe ambient i klinikës"
+              alt={t.imageAlt}
               fill
               className="object-cover"
             />
           </div>
 
           <div className="grid gap-5">
-            {facilities.map((item, index) => (
+            {t.facilities.map((item, index) => (
               <div
                 key={item.title}
                 className={`tech-card rounded-[26px] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg ${
