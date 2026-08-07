@@ -3,12 +3,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
+import "./Hero.css";
 
 const translations = {
   sq: {
     eyebrow: "Kujdes Dentar Modern",
-    title: "Stomatologji Moderne",
-    highlight: "Me Kujdes Profesional.",
+    titleFirst: "Stomatologji Moderne",
+    titleSecond: "Me Kujdes Profesional.",
 
     tags: [
       "Kontrolle Dentare",
@@ -25,8 +26,8 @@ const translations = {
 
   en: {
     eyebrow: "Modern Dental Care",
-    title: "Modern Dentistry",
-    highlight: "With Professional Care.",
+    titleFirst: "Modern Dentistry",
+    titleSecond: "With Professional Care.",
 
     tags: [
       "Dental Checkups",
@@ -47,58 +48,69 @@ export default function Hero() {
   const t = translations[language];
 
   return (
-    <section className="relative overflow-x-hidden">
-      <div className="relative min-h-[100dvh] w-full max-w-full overflow-hidden bg-black text-white">
-        <Image
-          src="/images/img18.jpg"
-          alt={t.alt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[58%_center] sm:object-[55%_center] md:object-center"
-        />
+    <section className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden px-5 text-center text-white md:px-10">
+      {/* Background image */}
+      <Image
+        src="/images/img18.jpg"
+        alt={t.alt}
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-[58%_center] md:object-center"
+      />
 
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-black/85 md:bg-gradient-to-r md:from-black/80 md:via-black/45 md:to-black/20" />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/70" />
 
-        <div className="relative z-20 flex min-h-[100dvh] w-full max-w-full items-end overflow-hidden px-5 pb-12 pt-24 md:px-10 md:pb-16 md:pt-28">
-          <div className="w-full max-w-4xl animate-fade-up">
-            <p className="mb-3 text-[9px] font-bold uppercase tracking-[0.28em] text-white/80 sm:text-[10px] md:mb-4 md:text-xs md:tracking-[0.3em]">
-              {t.eyebrow}
-            </p>
+      {/* Content */}
+      <div className="relative z-10 mx-auto w-full max-w-5xl pt-20 md:pt-24">
+        <p className="hero-fade-up mb-5 text-[10px] font-bold uppercase tracking-[0.4em] text-blue-200 md:text-xs">
+          {t.eyebrow}
+        </p>
 
-            <h1 className="max-w-3xl text-[34px] font-light leading-[1.08] sm:text-5xl md:text-6xl">
-              {t.title}
-              <br />
-              <span className="font-semibold">{t.highlight}</span>
-            </h1>
+        <h1 className="hero-fade-up hero-delay-200 text-4xl font-light leading-tight sm:text-5xl md:text-7xl">
+          {t.titleFirst}
+          <br />
 
-            <div className="mt-5 flex flex-wrap gap-2 md:mt-8 md:gap-3">
-              {t.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full bg-white/15 px-3 py-2 text-[10px] font-semibold text-white backdrop-blur-md transition-all duration-300 active:bg-white active:text-[#00408a] md:px-4 md:text-xs md:hover:bg-white md:hover:text-[#00408a]"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+          <span className="font-semibold">
+            {t.titleSecond}
+          </span>
+        </h1>
 
-            <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center">
-              <Link
-                href="/contact"
-                className="inline-flex w-full justify-center rounded-full bg-[#00408a] px-7 py-3 text-sm font-semibold text-white transition-all duration-300 active:scale-[0.98] active:bg-[#0056b8] sm:w-auto md:hover:-translate-y-1 md:hover:bg-[#0056b8]"
-              >
-                {t.appointment}
-              </Link>
+        {/* Tags */}
+        <div className="hero-fade-up hero-delay-400 mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-2 md:gap-3">
+          {t.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full bg-white/15 px-3 py-2 text-[10px] font-semibold text-white backdrop-blur-md transition-all duration-300 active:bg-white active:text-[#00408a] md:px-4 md:text-xs md:hover:bg-white md:hover:text-[#00408a]"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
 
-              <Link
-                href="/services"
-                className="inline-flex w-full justify-center rounded-full border border-white px-7 py-3 text-sm font-bold text-white transition-all duration-300 active:scale-[0.98] active:bg-white active:text-sky-900 sm:w-auto md:hover:-translate-y-1 md:hover:bg-white md:hover:text-sky-900"
-              >
-                {t.services}
-              </Link>
-            </div>
-          </div>
+        {/* Buttons */}
+        <div className="hero-fade-up hero-delay-600 mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:items-center">
+          <Link
+            href="/contact"
+            className="inline-flex w-full justify-center rounded-full bg-[#00408a] px-7 py-3 text-sm font-semibold text-white transition-all duration-300 active:scale-[0.98] active:bg-[#0056b8] sm:w-auto md:hover:-translate-y-1 md:hover:bg-[#0056b8]"
+          >
+            {t.appointment}
+          </Link>
+
+          <Link
+            href="/services"
+            className="inline-flex w-full justify-center rounded-full border border-white/60 px-7 py-3 text-sm font-bold text-white transition-all duration-300 active:scale-[0.98] active:bg-white active:text-[#052f5e] sm:w-auto md:hover:-translate-y-1 md:hover:bg-white md:hover:text-[#052f5e]"
+          >
+            {t.services}
+          </Link>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2">
+        <div className="hero-scroll flex h-10 w-6 justify-center rounded-full border border-white/40">
+          <div className="mt-2 h-2 w-2 rounded-full bg-white" />
         </div>
       </div>
     </section>
