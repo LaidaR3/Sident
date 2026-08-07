@@ -98,7 +98,7 @@ export default function StorySection() {
         <div className="relative">
           <div className="relative h-[560px] overflow-hidden rounded-[36px]">
             <Image
-              src="/images/img19.jpg"
+              src="/images/img18.jpg"
               alt={t.imageAlt}
               fill
               className="object-cover"

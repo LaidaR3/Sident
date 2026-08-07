@@ -27,7 +27,7 @@ export default function DoctorsHero() {
 
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 text-center text-white md:px-10">
-      <div className="absolute inset-0 bg-[url('/images/img14.jpg')] bg-cover bg-center" />
+      <div className="absolute inset-0 bg-[url('/images/img19.jpg')] bg-cover bg-center" />
 
       <div className="absolute inset-0 bg-black/70" />
 
