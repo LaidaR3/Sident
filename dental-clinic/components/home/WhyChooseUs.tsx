@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import "./WhyChooseUs.css";
+import { IoArrowForwardOutline } from "react-icons/io5";
 
 const translations = {
   sq: {
@@ -97,17 +98,15 @@ export default function WhyChooseUs() {
         <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-end md:gap-14">
           <div>
             <p
-              className={`why-slide-left mb-4 text-[10px] font-bold uppercase tracking-[0.28em] text-[#243856]/60 md:mb-5 md:tracking-[0.35em] ${
-                isVisible ? "why-visible" : ""
-              }`}
+              className={`why-slide-left mb-4 text-[10px] font-bold uppercase tracking-[0.28em] text-[#243856]/60 md:mb-5 md:tracking-[0.35em] ${isVisible ? "why-visible" : ""
+                }`}
             >
               {t.eyebrow}
             </p>
 
             <h2
-              className={`why-slide-left why-delay-100 max-w-2xl text-3xl font-light leading-tight text-[#243856] md:text-[4rem] md:leading-[1.15] ${
-                isVisible ? "why-visible" : ""
-              }`}
+              className={`why-slide-left why-delay-100 max-w-2xl text-3xl font-light leading-tight text-[#243856] md:text-[4rem] md:leading-[1.15] ${isVisible ? "why-visible" : ""
+                }`}
             >
               {t.titleFirst}
               <br />
@@ -118,15 +117,14 @@ export default function WhyChooseUs() {
               {t.items.map((item, index) => (
                 <div
                   key={item.title}
-                  className={`why-slide-left why-item group border-b border-[#243856]/15 py-5 transition-all duration-500 md:py-7 ${
-                    index === 0
+                  className={`why-slide-left why-item group border-b border-[#243856]/15 py-5 transition-all duration-500 md:py-7 ${index === 0
                       ? "why-delay-200"
                       : index === 1
                         ? "why-delay-300"
                         : index === 2
                           ? "why-delay-400"
                           : "why-delay-500"
-                  } ${isVisible ? "why-visible" : ""}`}
+                    } ${isVisible ? "why-visible" : ""}`}
                 >
                   <div className="flex items-start justify-between gap-4 md:gap-8">
                     <div className="flex gap-4 md:gap-6">
@@ -145,8 +143,8 @@ export default function WhyChooseUs() {
                       </div>
                     </div>
 
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/40 text-sm text-[#243856] transition active:scale-90 md:opacity-0 md:group-hover:opacity-100">
-                      ↗
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/40 text-[#243856] transition active:scale-90 md:opacity-0 md:group-hover:opacity-100">
+                      <IoArrowForwardOutline className="-rotate-45 text-lg" />
                     </span>
                   </div>
                 </div>
@@ -155,9 +153,8 @@ export default function WhyChooseUs() {
           </div>
 
           <div
-            className={`why-slide-right why-delay-400 why-image relative h-[420px] overflow-hidden rounded-[28px] md:h-[620px] md:rounded-[40px] ${
-              isVisible ? "why-visible" : ""
-            }`}
+            className={`why-slide-right why-delay-400 why-image relative h-[420px] overflow-hidden rounded-[28px] md:h-[620px] md:rounded-[40px] ${isVisible ? "why-visible" : ""
+              }`}
           >
             <Image
               src="/images/img3.jpg"

@@ -41,16 +41,18 @@ export default function Navbar() {
   return (
     <header className="absolute left-0 top-0 z-50 w-full">
       <nav className="relative mx-auto flex max-w-7xl items-center px-6 py-4 text-white md:px-10">
+        {/* LOGO */}
         <Link
           href="/"
-          className="relative h-16 w-[170px] shrink-0 md:h-20 md:w-[230px]"
+          className="relative mt-4 flex h-16 w-[180px] shrink-0 items-center overflow-visible md:h-20 md:w-[240px]"
         >
           <Image
             src="/images/logo.png"
-            alt="Sident Logo"
+            alt="Sident Dental Clinic"
             fill
             priority
-            className="object-contain"
+            sizes="(max-width: 768px) 180px, 240px"
+            className="origin-left scale-[1.7] object-contain object-left md:scale-[2]"
           />
         </Link>
 
@@ -60,11 +62,10 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`whitespace-nowrap text-sm font-medium transition-colors duration-300 ${
-                isActive(link.href)
+              className={`whitespace-nowrap text-sm font-medium transition-colors duration-300 ${isActive(link.href)
                   ? "text-[#b8d7f3]"
                   : "text-white/85 hover:text-[#b8d7f3]"
-              }`}
+                }`}
             >
               {link.label}
             </Link>
@@ -76,11 +77,10 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => changeLanguage("sq")}
-            className={`rounded-full px-3 py-2 text-xs font-semibold transition ${
-              language === "sq"
+            className={`rounded-full px-3 py-2 text-xs font-semibold transition ${language === "sq"
                 ? "bg-white text-[#052f5e]"
                 : "bg-white/10 text-white hover:bg-white/20"
-            }`}
+              }`}
           >
             SQ
           </button>
@@ -88,11 +88,10 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => changeLanguage("en")}
-            className={`rounded-full px-3 py-2 text-xs font-semibold transition ${
-              language === "en"
+            className={`rounded-full px-3 py-2 text-xs font-semibold transition ${language === "en"
                 ? "bg-white text-[#052f5e]"
                 : "bg-white/10 text-white hover:bg-white/20"
-            }`}
+              }`}
           >
             EN
           </button>
@@ -118,11 +117,10 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className={`rounded-xl px-4 py-3 text-sm font-medium transition-colors ${
-                  isActive(link.href)
+                className={`rounded-xl px-4 py-3 text-sm font-medium transition-colors ${isActive(link.href)
                     ? "bg-white/10 text-[#b8d7f3]"
                     : "text-white/90 active:bg-white/10"
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>
@@ -135,11 +133,10 @@ export default function Navbar() {
                   changeLanguage("sq");
                   setOpen(false);
                 }}
-                className={`rounded-full px-4 py-3 text-sm font-semibold transition ${
-                  language === "sq"
+                className={`rounded-full px-4 py-3 text-sm font-semibold transition ${language === "sq"
                     ? "bg-white text-[#052f5e]"
                     : "border border-white/20 text-white"
-                }`}
+                  }`}
               >
                 Shqip
               </button>
@@ -150,11 +147,10 @@ export default function Navbar() {
                   changeLanguage("en");
                   setOpen(false);
                 }}
-                className={`rounded-full px-4 py-3 text-sm font-semibold transition ${
-                  language === "en"
+                className={`rounded-full px-4 py-3 text-sm font-semibold transition ${language === "en"
                     ? "bg-white text-[#052f5e]"
                     : "border border-white/20 text-white"
-                }`}
+                  }`}
               >
                 English
               </button>
