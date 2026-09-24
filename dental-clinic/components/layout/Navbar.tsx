@@ -56,31 +56,33 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Desktop menu */}
+        {/* DESKTOP MENU */}
         <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 rounded-full bg-white/10 px-8 py-4 backdrop-blur-md md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`whitespace-nowrap text-sm font-medium transition-colors duration-300 ${isActive(link.href)
+              className={`whitespace-nowrap text-sm font-medium transition-colors duration-300 ${
+                isActive(link.href)
                   ? "text-[#b8d7f3]"
                   : "text-white/85 hover:text-[#b8d7f3]"
-                }`}
+              }`}
             >
               {link.label}
             </Link>
           ))}
         </div>
 
-        {/* Desktop language buttons */}
+        {/* DESKTOP LANGUAGE */}
         <div className="ml-auto hidden items-center gap-2 md:flex">
           <button
             type="button"
             onClick={() => changeLanguage("sq")}
-            className={`rounded-full px-3 py-2 text-xs font-semibold transition ${language === "sq"
+            className={`rounded-full px-3 py-2 text-xs font-semibold transition ${
+              language === "sq"
                 ? "bg-white text-[#052f5e]"
                 : "bg-white/10 text-white hover:bg-white/20"
-              }`}
+            }`}
           >
             SQ
           </button>
@@ -88,57 +90,116 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => changeLanguage("en")}
-            className={`rounded-full px-3 py-2 text-xs font-semibold transition ${language === "en"
+            className={`rounded-full px-3 py-2 text-xs font-semibold transition ${
+              language === "en"
                 ? "bg-white text-[#052f5e]"
                 : "bg-white/10 text-white hover:bg-white/20"
-              }`}
+            }`}
           >
             EN
           </button>
         </div>
 
-        {/* Mobile menu button */}
+        {/* MOBILE HAMBURGER */}
         <button
           type="button"
-          onClick={() => setOpen((previous) => !previous)}
-          aria-label={open ? "Close menu" : "Open menu"}
-          className="ml-auto flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-2xl text-white backdrop-blur-md md:hidden"
+          onClick={() => setOpen(true)}
+          aria-label="Open menu"
+          className={`ml-auto h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md md:hidden ${
+            open ? "hidden" : "flex"
+          }`}
         >
-          {open ? "×" : "☰"}
+          <span className="flex flex-col gap-[5px]">
+            <span className="block h-[1.5px] w-5 bg-white" />
+            <span className="block h-[1.5px] w-5 bg-white" />
+            <span className="block h-[1.5px] w-5 bg-white" />
+          </span>
         </button>
       </nav>
 
-      {/* Mobile menu */}
-      {open && (
-        <div className="mx-6 rounded-[24px] border border-white/10 bg-[#052f5e] p-6 shadow-2xl md:hidden">
-          <div className="flex flex-col gap-2">
+      {/* MOBILE MENU OVERLAY */}
+      <div
+        className={`fixed inset-0 z-[60] transition-all duration-300 md:hidden ${
+          open
+            ? "pointer-events-auto bg-black/55 backdrop-blur-[2px]"
+            : "pointer-events-none bg-transparent"
+        }`}
+        onClick={() => setOpen(false)}
+      >
+        {/* DRAWER */}
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className={`absolute right-0 top-0 flex h-[100dvh] w-[82%] max-w-[360px] flex-col bg-[#052f5e] px-7 pb-8 pt-7 shadow-2xl transition-transform duration-300 ease-out ${
+            open ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          {/* DRAWER TOP */}
+          <div className="flex items-center justify-between">
+            <Link
+              href="/"
+              onClick={() => setOpen(false)}
+              className="relative h-14 w-28"
+            >
+              <Image
+                src="/images/logo.png"
+                alt="Sident Dental Clinic"
+                fill
+                className="object-contain object-left"
+              />
+            </Link>
+
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              aria-label="Close menu"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-2xl font-light text-white transition hover:bg-white/20"
+            >
+              ×
+            </button>
+          </div>
+
+          {/* MOBILE NAVIGATION */}
+          <div className="mt-10 flex flex-col">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className={`rounded-xl px-4 py-3 text-sm font-medium transition-colors ${isActive(link.href)
-                    ? "bg-white/10 text-[#b8d7f3]"
-                    : "text-white/90 active:bg-white/10"
-                  }`}
+                className={`relative border-b border-white/10 py-5 text-[17px] transition-colors duration-200 ${
+                  isActive(link.href)
+                    ? "font-semibold text-white"
+                    : "font-normal text-white/65 active:text-white"
+                }`}
               >
+                {isActive(link.href) && (
+                  <span className="absolute -left-7 top-1/2 h-7 w-[3px] -translate-y-1/2 rounded-r-full bg-[#b8d7f3]" />
+                )}
+
                 {link.label}
               </Link>
             ))}
+          </div>
 
-            <div className="mt-4 grid grid-cols-2 gap-3 border-t border-white/15 pt-5">
+          {/* LANGUAGE SWITCHER */}
+          <div className="mt-auto border-t border-white/15 pt-6">
+            <p className="mb-3 text-xs font-medium uppercase tracking-[0.15em] text-white/40">
+              {language === "sq" ? "Gjuha" : "Language"}
+            </p>
+
+            <div className="flex rounded-full bg-white/10 p-1">
               <button
                 type="button"
                 onClick={() => {
                   changeLanguage("sq");
                   setOpen(false);
                 }}
-                className={`rounded-full px-4 py-3 text-sm font-semibold transition ${language === "sq"
-                    ? "bg-white text-[#052f5e]"
-                    : "border border-white/20 text-white"
-                  }`}
+                className={`flex-1 rounded-full px-4 py-2.5 text-sm font-semibold transition-all ${
+                  language === "sq"
+                    ? "bg-white text-[#052f5e] shadow-sm"
+                    : "text-white/65"
+                }`}
               >
-                Shqip
+                SQ
               </button>
 
               <button
@@ -147,17 +208,18 @@ export default function Navbar() {
                   changeLanguage("en");
                   setOpen(false);
                 }}
-                className={`rounded-full px-4 py-3 text-sm font-semibold transition ${language === "en"
-                    ? "bg-white text-[#052f5e]"
-                    : "border border-white/20 text-white"
-                  }`}
+                className={`flex-1 rounded-full px-4 py-2.5 text-sm font-semibold transition-all ${
+                  language === "en"
+                    ? "bg-white text-[#052f5e] shadow-sm"
+                    : "text-white/65"
+                }`}
               >
-                English
+                EN
               </button>
             </div>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }
