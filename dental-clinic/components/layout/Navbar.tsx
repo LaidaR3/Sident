@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
+import { CiMenuBurger } from "react-icons/ci";
 
 const navigation = {
   sq: [
@@ -62,11 +63,10 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`whitespace-nowrap text-sm font-medium transition-colors duration-300 ${
-                isActive(link.href)
+              className={`whitespace-nowrap text-sm font-medium transition-colors duration-300 ${isActive(link.href)
                   ? "text-[#b8d7f3]"
                   : "text-white/85 hover:text-[#b8d7f3]"
-              }`}
+                }`}
             >
               {link.label}
             </Link>
@@ -78,11 +78,10 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => changeLanguage("sq")}
-            className={`rounded-full px-3 py-2 text-xs font-semibold transition ${
-              language === "sq"
+            className={`rounded-full px-3 py-2 text-xs font-semibold transition ${language === "sq"
                 ? "bg-white text-[#052f5e]"
                 : "bg-white/10 text-white hover:bg-white/20"
-            }`}
+              }`}
           >
             SQ
           </button>
@@ -90,61 +89,56 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => changeLanguage("en")}
-            className={`rounded-full px-3 py-2 text-xs font-semibold transition ${
-              language === "en"
+            className={`rounded-full px-3 py-2 text-xs font-semibold transition ${language === "en"
                 ? "bg-white text-[#052f5e]"
                 : "bg-white/10 text-white hover:bg-white/20"
-            }`}
+              }`}
           >
             EN
           </button>
         </div>
 
         {/* MOBILE HAMBURGER */}
+
+        {/* MOBILE HAMBURGER */}
         <button
           type="button"
           onClick={() => setOpen(true)}
           aria-label="Open menu"
-          className={`ml-auto h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md md:hidden ${
-            open ? "hidden" : "flex"
-          }`}
+          className={`ml-auto h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition md:hidden ${open ? "hidden" : "flex"
+            }`}
         >
-          <span className="flex flex-col gap-[5px]">
-            <span className="block h-[1.5px] w-5 bg-white" />
-            <span className="block h-[1.5px] w-5 bg-white" />
-            <span className="block h-[1.5px] w-5 bg-white" />
-          </span>
+          <CiMenuBurger className="h-6 w-6" />
         </button>
       </nav>
 
       {/* MOBILE MENU OVERLAY */}
       <div
-        className={`fixed inset-0 z-[60] transition-all duration-300 md:hidden ${
-          open
+        className={`fixed inset-0 z-[60] transition-all duration-300 md:hidden ${open
             ? "pointer-events-auto bg-black/55 backdrop-blur-[2px]"
             : "pointer-events-none bg-transparent"
-        }`}
+          }`}
         onClick={() => setOpen(false)}
       >
         {/* DRAWER */}
         <div
           onClick={(e) => e.stopPropagation()}
-          className={`absolute right-0 top-0 flex h-[100dvh] w-[82%] max-w-[360px] flex-col bg-[#052f5e] px-7 pb-8 pt-7 shadow-2xl transition-transform duration-300 ease-out ${
-            open ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`absolute right-0 top-0 flex h-[100dvh] w-[82%] max-w-[360px] flex-col bg-[#052f5e] px-7 pb-8 pt-7 shadow-2xl transition-transform duration-300 ease-out ${open ? "translate-x-0" : "translate-x-full"
+            }`}
         >
+          {/* DRAWER TOP */}
           {/* DRAWER TOP */}
           <div className="flex items-center justify-between">
             <Link
               href="/"
               onClick={() => setOpen(false)}
-              className="relative h-14 w-28"
+              className="relative h-16 w-36 overflow-visible"
             >
               <Image
                 src="/images/logo.png"
                 alt="Sident Dental Clinic"
                 fill
-                className="object-contain object-left"
+                className="origin-left scale-[1.8] object-contain object-left"
               />
             </Link>
 
@@ -165,11 +159,10 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className={`relative border-b border-white/10 py-5 text-[17px] transition-colors duration-200 ${
-                  isActive(link.href)
+                className={`relative border-b border-white/10 py-5 text-[17px] transition-colors duration-200 ${isActive(link.href)
                     ? "font-semibold text-white"
                     : "font-normal text-white/65 active:text-white"
-                }`}
+                  }`}
               >
                 {isActive(link.href) && (
                   <span className="absolute -left-7 top-1/2 h-7 w-[3px] -translate-y-1/2 rounded-r-full bg-[#b8d7f3]" />
@@ -193,11 +186,10 @@ export default function Navbar() {
                   changeLanguage("sq");
                   setOpen(false);
                 }}
-                className={`flex-1 rounded-full px-4 py-2.5 text-sm font-semibold transition-all ${
-                  language === "sq"
+                className={`flex-1 rounded-full px-4 py-2.5 text-sm font-semibold transition-all ${language === "sq"
                     ? "bg-white text-[#052f5e] shadow-sm"
                     : "text-white/65"
-                }`}
+                  }`}
               >
                 SQ
               </button>
@@ -208,11 +200,10 @@ export default function Navbar() {
                   changeLanguage("en");
                   setOpen(false);
                 }}
-                className={`flex-1 rounded-full px-4 py-2.5 text-sm font-semibold transition-all ${
-                  language === "en"
+                className={`flex-1 rounded-full px-4 py-2.5 text-sm font-semibold transition-all ${language === "en"
                     ? "bg-white text-[#052f5e] shadow-sm"
                     : "text-white/65"
-                }`}
+                  }`}
               >
                 EN
               </button>
