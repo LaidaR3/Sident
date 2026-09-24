@@ -127,7 +127,7 @@ const translations: Record<"sq" | "en", TranslationContent> = {
         },
         {
           title: "Bonding Estetik",
-          image: "/images/img26.jpg",
+          image: "/images/img30.jpg",
           duration: "30-60 minuta",
           text: "Zgjidhje e shpejtë estetike për korrigjimin e defekteve të vogla, hapësirave ose dëmtimeve sipërfaqësore.",
           benefits: [
@@ -138,7 +138,7 @@ const translations: Record<"sq" | "en", TranslationContent> = {
         },
         {
           title: "Smile Design",
-          image: "/images/img33.jpg",
+          image: "/images/img34.jpg",
           duration: "Sipas planit individual",
           text: "Planifikim estetik i buzëqeshjes duke marrë parasysh formën, ngjyrën dhe harmoninë e dhëmbëve.",
           benefits: [
@@ -334,7 +334,7 @@ const translations: Record<"sq" | "en", TranslationContent> = {
         },
         {
           title: "Cosmetic Bonding",
-          image: "/images/img26.jpg",
+          image: "/images/img30.jpg",
           duration: "30-60 minutes",
           text: "A quick cosmetic solution for correcting small imperfections, gaps, or surface damage.",
           benefits: [
@@ -345,7 +345,7 @@ const translations: Record<"sq" | "en", TranslationContent> = {
         },
         {
           title: "Smile Design",
-          image: "/images/img25.jpg",
+          image: "/images/img34.jpg",
           duration: "Based on the individual plan",
           text: "Personalized smile planning based on tooth shape, color, proportion, and overall harmony.",
           benefits: [
