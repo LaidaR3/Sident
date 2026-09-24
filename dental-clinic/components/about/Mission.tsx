@@ -84,8 +84,8 @@ export default function MissionVision() {
         }
       },
       {
-        rootMargin: "-100px 0px",
-        threshold: 0.5,
+        rootMargin: "0px 0px -50px 0px",
+        threshold: 0.05,
       }
     );
 
@@ -101,9 +101,8 @@ export default function MissionVision() {
     >
       <div className="mx-auto max-w-7xl">
         <div
-          className={`mission-header mb-16 text-center ${
-            isVisible ? "mission-visible" : ""
-          }`}
+          className={`mission-header mb-16 text-center ${isVisible ? "mission-visible" : ""
+            }`}
         >
           <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.35em] text-[#052f5e]/60">
             {t.eyebrow}
@@ -124,9 +123,8 @@ export default function MissionVision() {
           {t.cards.map((card, index) => (
             <div
               key={card.number}
-              className={`mission-card group relative overflow-hidden rounded-[32px] border border-white/40 bg-white/50 p-8 backdrop-blur-sm transition-all duration-500 hover:-translate-y-3 hover:bg-white/70 hover:shadow-2xl ${
-                isVisible ? "mission-visible" : ""
-              }`}
+              className={`mission-card group relative overflow-hidden rounded-[32px] border border-white/40 bg-white/50 p-8 backdrop-blur-sm transition-all duration-500 hover:-translate-y-3 hover:bg-white/70 hover:shadow-2xl ${isVisible ? "mission-visible" : ""
+                }`}
               style={{ transitionDelay: `${index * 0.15}s` }}
             >
               <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-white/30 blur-xl transition duration-500 group-hover:scale-150" />

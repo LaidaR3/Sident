@@ -96,11 +96,12 @@ export default function StorySection() {
         </div>
 
         <div className="relative">
-          <div className="relative h-[560px] overflow-hidden rounded-[36px]">
+          <div className="relative h-[380px] overflow-hidden rounded-[28px] sm:h-[460px] md:h-[560px] md:rounded-[36px]">
             <Image
-              src="/images/img18                                                                                                                                                                                                                                                             .jpg"
+              src="/images/img18.jpg"
               alt={t.imageAlt}
               fill
+              sizes="(max-width: 768px) 100vw, 55vw"
               className="object-cover"
             />
           </div>
