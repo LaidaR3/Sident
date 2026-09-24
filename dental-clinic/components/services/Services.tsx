@@ -138,7 +138,7 @@ const translations: Record<"sq" | "en", TranslationContent> = {
         },
         {
           title: "Smile Design",
-          image: "/images/img25.jpg",
+          image: "/images/img33.jpg",
           duration: "Sipas planit individual",
           text: "Planifikim estetik i buzëqeshjes duke marrë parasysh formën, ngjyrën dhe harmoninë e dhëmbëve.",
           benefits: [
