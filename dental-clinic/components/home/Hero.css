@@ -1,25 +1,25 @@
 .hero-fade-up {
   opacity: 0;
-  transform: translateY(40px);
-  animation: heroFadeUp 1s ease forwards;
+  transform: translateY(28px);
+  animation: heroFadeUp 0.9s ease forwards;
 }
 
 .hero-delay-200 {
-  animation-delay: 0.2s;
+  animation-delay: 0.15s;
 }
 
 .hero-delay-400 {
-  animation-delay: 0.4s;
+  animation-delay: 0.3s;
 }
 
 .hero-delay-600 {
-  animation-delay: 0.6s;
+  animation-delay: 0.45s;
 }
 
 @keyframes heroFadeUp {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(28px);
   }
 
   to {
@@ -33,7 +33,7 @@
 }
 
 .hero-scroll div {
-  animation: scrollDot 2s infinite;
+  animation: scrollDot 2s ease-in-out infinite;
 }
 
 @keyframes floatMouse {
@@ -43,7 +43,7 @@
   }
 
   50% {
-    transform: translateY(6px);
+    transform: translateY(5px);
   }
 }
 
@@ -53,12 +53,43 @@
     transform: translateY(0);
   }
 
-  40% {
+  35% {
     opacity: 1;
   }
 
   100% {
     opacity: 0;
     transform: translateY(12px);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-fade-up {
+    transform: translateY(20px);
+  }
+
+  @keyframes heroFadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade-up {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .hero-scroll,
+  .hero-scroll div {
+    animation: none;
   }
 }
