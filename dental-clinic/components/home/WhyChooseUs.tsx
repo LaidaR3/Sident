@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import "./WhyChooseUs.css";
-import { IoArrowForwardOutline } from "react-icons/io5";
+// import { IoArrowForwardOutline } from "react-icons/io5";
 
 const translations = {
   sq: {
@@ -117,35 +117,34 @@ export default function WhyChooseUs() {
               {t.items.map((item, index) => (
                 <div
                   key={item.title}
-                  className={`why-slide-left why-item group border-b border-[#243856]/15 py-5 transition-all duration-500 md:py-7 ${index === 0
+                  className={`why-slide-left why-item group border-b border-[#243856]/15 py-5
+  transition-colors duration-700 ease-in-out
+  hover:bg-white/[0.08]
+  md:py-7
+  ${index === 0
                       ? "why-delay-200"
                       : index === 1
                         ? "why-delay-300"
                         : index === 2
                           ? "why-delay-400"
                           : "why-delay-500"
-                    } ${isVisible ? "why-visible" : ""}`}
+                    }
+  ${isVisible ? "why-visible" : ""}`}
                 >
-                  <div className="flex items-start justify-between gap-4 md:gap-8">
-                    <div className="flex gap-4 md:gap-6">
-                      <span className="pt-1 text-xs text-[#243856]/40 transition md:text-sm md:group-hover:text-[#243856]">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-
-                      <div>
-                        <h3 className="text-xl font-light text-[#243856] md:text-2xl">
-                          {item.title}
-                        </h3>
-
-                        <p className="mt-2 max-w-xl text-sm leading-7 text-[#243856]/65">
-                          {item.text}
-                        </p>
-                      </div>
-                    </div>
-
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/40 text-[#243856] transition active:scale-90 md:opacity-0 md:group-hover:opacity-100">
-                      <IoArrowForwardOutline className="-rotate-45 text-lg" />
+                  <div className="flex gap-4 md:gap-6">
+                    <span className="pt-1 text-xs text-[#243856]/40 transition-colors duration-300 group-hover:text-[#243856] md:text-sm">
+                      {String(index + 1).padStart(2, "0")}
                     </span>
+
+                    <div>
+                      <h3 className="text-xl font-light text-[#243856] transition-all duration-300 group-hover:translate-x-1 md:text-2xl">
+                        {item.title}
+                      </h3>
+
+                      <p className="mt-2 max-w-xl text-sm leading-7 text-[#243856]/65 transition-colors duration-300 group-hover:text-[#243856]/80">
+                        {item.text}
+                      </p>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -165,6 +164,6 @@ export default function WhyChooseUs() {
           </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 }
