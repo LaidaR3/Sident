@@ -16,6 +16,7 @@ const translations = {
 
     doctors: [
       {
+        id: "sinan-rusinovci",
         name: "Prof. Dr. Sinan Rusinovci",
         role: "Kirurg Maksilofacial",
         image: "/images/img4.jpg",
@@ -37,6 +38,7 @@ const translations = {
         ],
       },
       {
+        id: "enis-beka",
         name: "Dr. Enis Beka",
         role: "Kirurg Oral",
         image: "/images/img5.jpg",
@@ -58,6 +60,7 @@ const translations = {
         ],
       },
       {
+        id: "arbereshe-pnishi",
         name: "Dr. Arbëreshë Pnishi - Berisha",
         role: "Ortodonte",
         image: "/images/img6.jpg",
@@ -79,6 +82,7 @@ const translations = {
         ],
       },
       {
+        id: "blerta-rusinovci",
         name: "Dr. Blerta Rusinovci",
         role: "Stomatologe",
         image: "/images/img6.jpg",
@@ -100,6 +104,7 @@ const translations = {
         ],
       },
       {
+        id: "floreta-jusufi",
         name: "Floreta Jusufi",
         role: "Asistente Dentare",
         image: "/images/img6.jpg",
@@ -133,6 +138,7 @@ const translations = {
 
     doctors: [
       {
+        id: "sinan-rusinovci",
         name: "Prof. Dr. Sinan Rusinovci",
         role: "Maxillofacial Surgeon",
         image: "/images/img4.jpg",
@@ -154,6 +160,7 @@ const translations = {
         ],
       },
       {
+        id: "enis-beka",
         name: "Dr. Enis Beka",
         role: "Oral Surgeon",
         image: "/images/img5.jpg",
@@ -175,6 +182,7 @@ const translations = {
         ],
       },
       {
+        id: "arbereshe-pnishi",
         name: "Dr. Arbëreshë Pnishi - Berisha",
         role: "Orthodontist",
         image: "/images/img6.jpg",
@@ -196,6 +204,7 @@ const translations = {
         ],
       },
       {
+        id: "blerta-rusinovci",
         name: "Dr. Blerta Rusinovci",
         role: "Dentist",
         image: "/images/img6.jpg",
@@ -217,6 +226,7 @@ const translations = {
         ],
       },
       {
+        id: "floreta-jusufi",
         name: "Floreta Jusufi",
         role: "Dental Assistant",
         image: "/images/img6.jpg",
@@ -312,19 +322,19 @@ export default function DoctorsProfiles() {
 
             return (
               <div
-                key={`${doctor.name}-${doctor.role}`}
+                id={doctor.id}
+                key={doctor.id}
                 ref={(element) => {
                   itemRefs.current[index] = element;
                 }}
                 data-index={index}
-                className="grid items-center gap-12 md:grid-cols-2"
+                className="scroll-mt-28 grid items-center gap-12 md:grid-cols-2"
               >
                 <div
-                  className={`doctor-image-slide ${
-                    reverse
+                  className={`doctor-image-slide ${reverse
                       ? "md:order-2 doctor-slide-right"
                       : "doctor-slide-left"
-                  } ${isVisible ? "doctor-visible" : ""}`}
+                    } ${isVisible ? "doctor-visible" : ""}`}
                 >
                   <div className="relative h-[560px] overflow-hidden rounded-[36px] bg-slate-100">
                     <Image
@@ -338,11 +348,10 @@ export default function DoctorsProfiles() {
                 </div>
 
                 <div
-                  className={`doctor-content-slide ${
-                    reverse
+                  className={`doctor-content-slide ${reverse
                       ? "md:order-1 doctor-slide-left"
                       : "doctor-slide-right"
-                  } ${isVisible ? "doctor-visible" : ""}`}
+                    } ${isVisible ? "doctor-visible" : ""}`}
                 >
                   <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.35em] text-[#87A5C0]">
                     {doctor.role}

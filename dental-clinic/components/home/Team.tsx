@@ -21,30 +21,35 @@ const translations = {
 
     doctors: [
       {
+        id: "sinan-rusinovci",
         name: "Prof. Dr. Sinan Rusinovci",
         role: "Kirurg Maksilofacial",
         image: "/images/img4.jpg",
         text: "Diagnostikim dhe trajtim kirurgjikal i semundjeve, demtimeve dhe anomalive te gojes, nofullave dhe regjionit te fytyres.",
       },
       {
+        id: "enis-beka",
         name: "Dr. Enis Beka",
         role: "Kirurg Oral",
         image: "/images/img5.jpg",
         text: "Trajtime kirurgjikale orale, duke perfshire nxjerrjen e dhembeve, nderhyrjet ne indet orale dhe procedura te tjera kirurgjikale.",
       },
       {
+        id: "arbereshe-pnishi",
         name: "Dr. Arbereshe Pnishi-Berisha",
         role: "Ortodonte",
         image: "/images/img6.jpg",
         text: "Diagnostikim dhe trajtim i crregullimeve te pozicionit te dhembeve dhe nofullave per nje kafshim funksional dhe buzeqeshje harmonike.",
       },
       {
+        id: "blerta-rusinovci",
         name: "Dr. Blerta Rusinovci",
         role: "Stomatologe",
         image: "/images/img4.jpg",
         text: "Kontrolle stomatologjike, diagnostikim, trajtime parandaluese dhe restauruese per ruajtjen e shendetit oral.",
       },
       {
+        id: "floreta-jusufi",
         name: "Dr. Floreta Jusufi",
         role: "Asistente Stomatologjike",
         image: "/images/img4.jpg",
@@ -62,30 +67,35 @@ const translations = {
 
     doctors: [
       {
+        id: "sinan-rusinovci",
         name: "Prof. Dr. Sinan Rusinovci",
         role: "Maxillofacial Surgeon",
         image: "/images/img4.jpg",
         text: "Diagnosis and surgical treatment of diseases, injuries, and abnormalities affecting the mouth, jaws, and facial region.",
       },
       {
+        id: "enis-beka",
         name: "Dr. Enis Beka",
         role: "Oral Surgeon",
         image: "/images/img5.jpg",
         text: "Oral surgical treatments, including tooth extractions, procedures involving oral tissues, and other surgical interventions.",
       },
       {
+        id: "arbereshe-pnishi",
         name: "Dr. Arbereshe Pnishi-Berisha",
         role: "Orthodontist",
         image: "/images/img6.jpg",
         text: "Diagnosis and treatment of tooth and jaw alignment issues to achieve a functional bite and a harmonious smile.",
       },
       {
+        id: "blerta-rusinovci",
         name: "Dr. Blerta Rusinovci",
         role: "General Dentist",
         image: "/images/img4.jpg",
         text: "Dental examinations, diagnosis, preventive care, and restorative treatments focused on maintaining long-term oral health.",
       },
       {
+        id: "floreta-jusufi",
         name: "Dr. Floreta Jusufi",
         role: "Dental Assistant",
         image: "/images/img4.jpg",
@@ -190,14 +200,14 @@ export default function TeamSection() {
                     </p>
 
                     <Link
-                      href="/doctors#profiles"
-                      className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#052f5e] transition hover:gap-3"
+                      href={`/doctors#${doctor.id}`}
+                      className="mt-6 inline-flex w-fit items-center gap-2 text-sm font-medium text-[#052f5e] transition-all duration-300 hover:gap-3"
                     >
-                      {/* {t.readMore}
-                      <span>→</span> */}
+                      {t.readMore}
+                      <span>→</span>
                     </Link>
 
-                    <div className="mt-8 h-px w-16 bg-[#052f5e]/20" />
+
                   </div>
                 </div>
               </SwiperSlide>

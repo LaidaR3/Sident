@@ -51,7 +51,7 @@ export default function Hero() {
     <section className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden px-5 text-center text-white md:px-10">
       {/* Background image */}
       <Image
-        src="/images/img18.jpg"
+        src="/images/img1.jpg"
         alt={t.alt}
         fill
         priority
