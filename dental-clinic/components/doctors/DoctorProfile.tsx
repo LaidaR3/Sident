@@ -25,7 +25,7 @@ const translations = {
         focus:
           "Qasja e tij kombinon ekspertizën klinike, planifikimin e kujdesshëm dhe teknologjinë moderne për rezultate të sigurta dhe afatgjata.",
         stats: [
-          "10+ vite përvojë",
+          "25+ vite përvojë",
           "3000+ pacientë",
           "Kirurgji maksilofaciale",
           "Trajtime të avancuara",
@@ -91,6 +91,7 @@ const translations = {
         focus:
           "Qasja e saj e kujdesshme dhe e personalizuar ndihmon pacientët të ndihen të sigurt dhe të qetë gjatë çdo vizite.",
         stats: [
+          "4+ vite përvojë",
           "Kujdes stomatologjik",
           "Kontrolle dentare",
           "Trajtime parandaluese",
@@ -101,28 +102,6 @@ const translations = {
           "Parandalim oral",
           "Diagnostikim",
           "Restaurime",
-        ],
-      },
-      {
-        id: "floreta-jusufi",
-        name: "Floreta Jusufi",
-        role: "Asistente Dentare",
-        image: "/images/img6.jpg",
-        description:
-          "Floreta Jusufi mbështet ekipin mjekësor gjatë trajtimeve dhe kujdeset për organizimin, higjienën dhe komoditetin e pacientit.",
-        focus:
-          "Me qasje të kujdesshme dhe profesionale, ajo kontribuon në një përvojë të sigurt, të organizuar dhe të rehatshme për çdo pacient.",
-        stats: [
-          "Asistencë klinike",
-          "Përgatitje e materialeve",
-          "Higjienë dhe sterilizim",
-          "Kujdes ndaj pacientit",
-        ],
-        specializations: [
-          "Asistencë dentare",
-          "Sterilizim",
-          "Organizim klinik",
-          "Komoditet i pacientit",
         ],
       },
     ],
@@ -141,13 +120,13 @@ const translations = {
         id: "sinan-rusinovci",
         name: "Prof. Dr. Sinan Rusinovci",
         role: "Maxillofacial Surgeon",
-        image: "/images/img4.jpg",
+        image: "/images/",
         description:
           "With extensive experience in maxillofacial surgery, Prof. Dr. Sinan Rusinovci provides professional diagnosis and advanced treatments focused on patient safety and well-being.",
         focus:
           "His approach combines clinical expertise, careful planning, and modern technology to achieve safe and long-lasting results.",
         stats: [
-          "10+ years of experience",
+          "25+ years of experience",
           "3000+ patients",
           "Maxillofacial surgery",
           "Advanced treatments",
@@ -163,7 +142,7 @@ const translations = {
         id: "enis-beka",
         name: "Dr. Enis Beka",
         role: "Oral Surgeon",
-        image: "/images/img5.jpg",
+        image: "/images/",
         description:
           "Dr. Enis Beka provides oral surgical treatments through a professional, safe, and patient-centered approach.",
         focus:
@@ -185,7 +164,7 @@ const translations = {
         id: "arbereshe-pnishi",
         name: "Dr. Arbëreshë Pnishi - Berisha",
         role: "Orthodontist",
-        image: "/images/img6.jpg",
+        image: "/images/",
         description:
           "Specialized in modern orthodontic treatments, Dr. Arbëreshë Pnishi - Berisha helps patients straighten their teeth and improve bite alignment.",
         focus:
@@ -207,12 +186,13 @@ const translations = {
         id: "blerta-rusinovci",
         name: "Dr. Blerta Rusinovci",
         role: "Dentist",
-        image: "/images/img6.jpg",
+        image: "/images/",
         description:
           "Dr. Blerta Rusinovci provides general dental care, diagnosis, and preventive and restorative treatments.",
         focus:
           "Her careful and personalized approach helps patients feel safe and comfortable during every visit.",
         stats: [
+          "4+ years of experience",
           "General dental care",
           "Dental checkups",
           "Preventive treatments",
@@ -225,28 +205,8 @@ const translations = {
           "Restorations",
         ],
       },
-      {
-        id: "floreta-jusufi",
-        name: "Floreta Jusufi",
-        role: "Dental Assistant",
-        image: "/images/img6.jpg",
-        description:
-          "Floreta Jusufi supports the clinical team during treatments and helps maintain organization, hygiene, and patient comfort.",
-        focus:
-          "Through a careful and professional approach, she contributes to a safe, organized, and comfortable experience for every patient.",
-        stats: [
-          "Clinical assistance",
-          "Material preparation",
-          "Hygiene and sterilization",
-          "Patient care",
-        ],
-        specializations: [
-          "Dental assistance",
-          "Sterilization",
-          "Clinical organization",
-          "Patient comfort",
-        ],
-      },
+      
+      
     ],
   },
 };

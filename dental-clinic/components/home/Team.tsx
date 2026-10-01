@@ -24,37 +24,31 @@ const translations = {
         id: "sinan-rusinovci",
         name: "Prof. Dr. Sinan Rusinovci",
         role: "Kirurg Maksilofacial",
-        image: "/images/img4.jpg",
+        image: "/images/",
         text: "Diagnostikim dhe trajtim kirurgjikal i semundjeve, demtimeve dhe anomalive te gojes, nofullave dhe regjionit te fytyres.",
       },
       {
         id: "enis-beka",
         name: "Dr. Enis Beka",
         role: "Kirurg Oral",
-        image: "/images/img5.jpg",
+        image: "/images/",
         text: "Trajtime kirurgjikale orale, duke perfshire nxjerrjen e dhembeve, nderhyrjet ne indet orale dhe procedura te tjera kirurgjikale.",
       },
       {
         id: "arbereshe-pnishi",
         name: "Dr. Arbereshe Pnishi-Berisha",
         role: "Ortodonte",
-        image: "/images/img6.jpg",
+        image: "/images/",
         text: "Diagnostikim dhe trajtim i crregullimeve te pozicionit te dhembeve dhe nofullave per nje kafshim funksional dhe buzeqeshje harmonike.",
       },
       {
         id: "blerta-rusinovci",
         name: "Dr. Blerta Rusinovci",
         role: "Stomatologe",
-        image: "/images/img4.jpg",
+        image: "/images/",
         text: "Kontrolle stomatologjike, diagnostikim, trajtime parandaluese dhe restauruese per ruajtjen e shendetit oral.",
       },
-      {
-        id: "floreta-jusufi",
-        name: "Dr. Floreta Jusufi",
-        role: "Asistente Stomatologjike",
-        image: "/images/img4.jpg",
-        text: "Asistence profesionale gjate trajtimeve stomatologjike dhe kujdes per komoditetin dhe sigurine e pacienteve.",
-      },
+      
     ],
   },
 
@@ -94,13 +88,7 @@ const translations = {
         image: "/images/img4.jpg",
         text: "Dental examinations, diagnosis, preventive care, and restorative treatments focused on maintaining long-term oral health.",
       },
-      {
-        id: "floreta-jusufi",
-        name: "Dr. Floreta Jusufi",
-        role: "Dental Assistant",
-        image: "/images/img4.jpg",
-        text: "Professional assistance during dental procedures while helping ensure patient comfort, safety, and quality care.",
-      },
+      
     ],
   },
 };
