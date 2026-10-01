@@ -25,8 +25,8 @@ const translations = {
         focus:
           "Qasja e tij kombinon ekspertizën klinike, planifikimin e kujdesshëm dhe teknologjinë moderne për rezultate të sigurta dhe afatgjata.",
         stats: [
-          "25+ vite përvojë",
-          "3000+ pacientë",
+          "20+ vite përvojë",
+          "6000+ pacientë",
           "Kirurgji maksilofaciale",
           "Trajtime të avancuara",
         ],
@@ -126,8 +126,8 @@ const translations = {
         focus:
           "His approach combines clinical expertise, careful planning, and modern technology to achieve safe and long-lasting results.",
         stats: [
-          "25+ years of experience",
-          "3000+ patients",
+          "20+ years of experience",
+          "6000+ patients",
           "Maxillofacial surgery",
           "Advanced treatments",
         ],

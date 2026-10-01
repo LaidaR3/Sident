@@ -13,12 +13,12 @@ const translations = {
 
     stats: [
       {
-        end: 15,
+        end: 20,
         suffix: "+",
         label: "Vite Eksperiencë",
       },
       {
-        end: 10,
+        end: 15,
         suffix: "K+",
         label: "Pacientë të Kënaqur",
       },
@@ -42,12 +42,12 @@ const translations = {
 
     stats: [
       {
-        end: 15,
+        end: 20,
         suffix: "+",
         label: "Years of Experience",
       },
       {
-        end: 10,
+        end: 15,
         suffix: "K+",
         label: "Satisfied Patients",
       },
