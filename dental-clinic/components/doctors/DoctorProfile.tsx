@@ -19,7 +19,7 @@ const translations = {
         id: "sinan-rusinovci",
         name: "Prof. Dr. Sinan Rusinovci",
         role: "Kirurg Maksilofacial",
-        image: "/images/img4.jpg",
+        image: "/images/",
         description:
           "Me përvojë të gjatë në kirurgjinë maksilofaciale, Prof. Dr. Sinan Rusinovci ofron diagnostikim profesional dhe trajtime të avancuara me fokus në sigurinë dhe mirëqenien e pacientit.",
         focus:
@@ -41,7 +41,7 @@ const translations = {
         id: "enis-beka",
         name: "Dr. Enis Beka",
         role: "Kirurg Oral",
-        image: "/images/img5.jpg",
+        image: "/images/",
         description:
           "Dr. Enis Beka ofron trajtime kirurgjikale orale me qasje profesionale, të sigurt dhe të përshtatur sipas nevojave të pacientit.",
         focus:
@@ -63,7 +63,7 @@ const translations = {
         id: "arbereshe-pnishi",
         name: "Dr. Arbëreshë Pnishi - Berisha",
         role: "Ortodonte",
-        image: "/images/img6.jpg",
+        image: "/images/",
         description:
           "E specializuar në trajtime ortodontike moderne, Dr. Arbëreshë Pnishi - Berisha ndihmon pacientët në drejtimin e dhëmbëve dhe përmirësimin e kafshimit.",
         focus:
@@ -85,7 +85,7 @@ const translations = {
         id: "blerta-rusinovci",
         name: "Dr. Blerta Rusinovci",
         role: "Stomatologe",
-        image: "/images/img6.jpg",
+        image: "/images/",
         description:
           "Dr. Blerta Rusinovci ofron kujdes stomatologjik të përgjithshëm, diagnostikim dhe trajtime parandaluese e restauruese.",
         focus:
