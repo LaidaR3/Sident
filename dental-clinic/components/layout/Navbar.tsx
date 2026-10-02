@@ -43,17 +43,18 @@ export default function Navbar() {
     <header className="absolute left-0 top-0 z-50 w-full">
       <nav className="relative mx-auto flex max-w-7xl items-center px-6 py-4 text-white md:px-10">
         {/* LOGO */}
+        {/* LOGO */}
         <Link
           href="/"
-          className="relative mt-4 flex h-16 w-[180px] shrink-0 items-center overflow-visible md:h-20 md:w-[240px]"
+          className="relative mt-2 flex h-16 w-[140px] shrink-0 items-center overflow-visible md:h-20 md:w-[170px]"
         >
           <Image
-            src="/images/logo.png"
+            src="/images/logo2.png"
             alt="Sident Dental Clinic"
             fill
             priority
-            sizes="(max-width: 768px) 180px, 240px"
-            className="origin-left scale-[1.7] object-contain object-left md:scale-[2]"
+            sizes="(max-width: 798px) 160px, 190px"
+            className="object-contain object-left"
           />
         </Link>
 
@@ -64,8 +65,8 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className={`whitespace-nowrap text-sm font-medium transition-colors duration-300 ${isActive(link.href)
-                  ? "text-[#b8d7f3]"
-                  : "text-white/85 hover:text-[#b8d7f3]"
+                ? "text-[#b8d7f3]"
+                : "text-white/85 hover:text-[#b8d7f3]"
                 }`}
             >
               {link.label}
@@ -79,8 +80,8 @@ export default function Navbar() {
             type="button"
             onClick={() => changeLanguage("sq")}
             className={`rounded-full px-3 py-2 text-xs font-semibold transition ${language === "sq"
-                ? "bg-white text-[#052f5e]"
-                : "bg-white/10 text-white hover:bg-white/20"
+              ? "bg-white text-[#052f5e]"
+              : "bg-white/10 text-white hover:bg-white/20"
               }`}
           >
             SQ
@@ -90,8 +91,8 @@ export default function Navbar() {
             type="button"
             onClick={() => changeLanguage("en")}
             className={`rounded-full px-3 py-2 text-xs font-semibold transition ${language === "en"
-                ? "bg-white text-[#052f5e]"
-                : "bg-white/10 text-white hover:bg-white/20"
+              ? "bg-white text-[#052f5e]"
+              : "bg-white/10 text-white hover:bg-white/20"
               }`}
           >
             EN
@@ -115,8 +116,8 @@ export default function Navbar() {
       {/* MOBILE MENU OVERLAY */}
       <div
         className={`fixed inset-0 z-[60] transition-all duration-300 md:hidden ${open
-            ? "pointer-events-auto bg-black/55 backdrop-blur-[2px]"
-            : "pointer-events-none bg-transparent"
+          ? "pointer-events-auto bg-black/55 backdrop-blur-[2px]"
+          : "pointer-events-none bg-transparent"
           }`}
         onClick={() => setOpen(false)}
       >
@@ -129,16 +130,18 @@ export default function Navbar() {
           {/* DRAWER TOP */}
           {/* DRAWER TOP */}
           <div className="flex items-center justify-between">
+            {/* LOGO */}
             <Link
               href="/"
-              onClick={() => setOpen(false)}
-              className="relative h-16 w-36 overflow-visible"
+              className="relative mt-2 flex h-16 w-[140px] shrink-0 items-center overflow-visible md:h-20 md:w-[170px]"
             >
               <Image
-                src="/images/logo.png"
+                src="/images/logo1.png"
                 alt="Sident Dental Clinic"
                 fill
-                className="origin-left scale-[1.8] object-contain object-left"
+                priority
+                sizes="(max-width: 768px) 140px, 170px"
+                className="object-contain object-left"
               />
             </Link>
 
@@ -160,8 +163,8 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className={`relative border-b border-white/10 py-5 text-[17px] transition-colors duration-200 ${isActive(link.href)
-                    ? "font-semibold text-white"
-                    : "font-normal text-white/65 active:text-white"
+                  ? "font-semibold text-white"
+                  : "font-normal text-white/65 active:text-white"
                   }`}
               >
                 {isActive(link.href) && (
@@ -187,8 +190,8 @@ export default function Navbar() {
                   setOpen(false);
                 }}
                 className={`flex-1 rounded-full px-4 py-2.5 text-sm font-semibold transition-all ${language === "sq"
-                    ? "bg-white text-[#052f5e] shadow-sm"
-                    : "text-white/65"
+                  ? "bg-white text-[#052f5e] shadow-sm"
+                  : "text-white/65"
                   }`}
               >
                 SQ
@@ -201,8 +204,8 @@ export default function Navbar() {
                   setOpen(false);
                 }}
                 className={`flex-1 rounded-full px-4 py-2.5 text-sm font-semibold transition-all ${language === "en"
-                    ? "bg-white text-[#052f5e] shadow-sm"
-                    : "text-white/65"
+                  ? "bg-white text-[#052f5e] shadow-sm"
+                  : "text-white/65"
                   }`}
               >
                 EN

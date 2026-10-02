@@ -19,7 +19,7 @@ const translations = {
         id: "sinan-rusinovci",
         name: "Prof. Dr. Sinan Rusinovci",
         role: "Kirurg Maksilofacial",
-        image: "/images/",
+        image: "/images/sinane.jpg",
         description:
           "Me përvojë të gjatë në kirurgjinë maksilofaciale, Prof. Dr. Sinan Rusinovci ofron diagnostikim profesional dhe trajtime të avancuara me fokus në sigurinë dhe mirëqenien e pacientit.",
         focus:
@@ -63,7 +63,7 @@ const translations = {
         id: "arbereshe-pnishi",
         name: "Dr. Arbëreshë Pnishi - Berisha",
         role: "Ortodonte",
-        image: "/images/",
+        image: "/images/arbereshap.jpg",
         description:
           "E specializuar në trajtime ortodontike moderne, Dr. Arbëreshë Pnishi - Berisha ndihmon pacientët në drejtimin e dhëmbëve dhe përmirësimin e kafshimit.",
         focus:
@@ -85,7 +85,7 @@ const translations = {
         id: "blerta-rusinovci",
         name: "Dr. Blerta Rusinovci",
         role: "Stomatologe",
-        image: "/images/",
+        image: "/images/blertar.jpg",
         description:
           "Dr. Blerta Rusinovci ofron kujdes stomatologjik të përgjithshëm, diagnostikim dhe trajtime parandaluese e restauruese.",
         focus:
@@ -120,7 +120,7 @@ const translations = {
         id: "sinan-rusinovci",
         name: "Prof. Dr. Sinan Rusinovci",
         role: "Maxillofacial Surgeon",
-        image: "/images/",
+        image: "/images/sinane.jpg",
         description:
           "With extensive experience in maxillofacial surgery, Prof. Dr. Sinan Rusinovci provides professional diagnosis and advanced treatments focused on patient safety and well-being.",
         focus:
@@ -164,7 +164,7 @@ const translations = {
         id: "arbereshe-pnishi",
         name: "Dr. Arbëreshë Pnishi - Berisha",
         role: "Orthodontist",
-        image: "/images/",
+        image: "/images/arbereshap.jpg",
         description:
           "Specialized in modern orthodontic treatments, Dr. Arbëreshë Pnishi - Berisha helps patients straighten their teeth and improve bite alignment.",
         focus:
@@ -186,7 +186,7 @@ const translations = {
         id: "blerta-rusinovci",
         name: "Dr. Blerta Rusinovci",
         role: "Dentist",
-        image: "/images/",
+        image: "/images/blertar.jpg",
         description:
           "Dr. Blerta Rusinovci provides general dental care, diagnosis, and preventive and restorative treatments.",
         focus:

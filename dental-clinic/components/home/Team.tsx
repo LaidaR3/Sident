@@ -24,7 +24,7 @@ const translations = {
         id: "sinan-rusinovci",
         name: "Prof. Dr. Sinan Rusinovci",
         role: "Kirurg Maksilofacial",
-        image: "/images/",
+        image: "/images/sinane.jpg",
         text: "Diagnostikim dhe trajtim kirurgjikal i semundjeve, demtimeve dhe anomalive te gojes, nofullave dhe regjionit te fytyres.",
       },
       {
@@ -38,14 +38,14 @@ const translations = {
         id: "arbereshe-pnishi",
         name: "Dr. Arbereshe Pnishi-Berisha",
         role: "Ortodonte",
-        image: "/images/",
+        image: "/images/arbereshap.jpg",
         text: "Diagnostikim dhe trajtim i crregullimeve te pozicionit te dhembeve dhe nofullave per nje kafshim funksional dhe buzeqeshje harmonike.",
       },
       {
         id: "blerta-rusinovci",
         name: "Dr. Blerta Rusinovci",
         role: "Stomatologe",
-        image: "/images/",
+        image: "/images/blertar.jpg",
         text: "Kontrolle stomatologjike, diagnostikim, trajtime parandaluese dhe restauruese per ruajtjen e shendetit oral.",
       },
       
@@ -64,7 +64,7 @@ const translations = {
         id: "sinan-rusinovci",
         name: "Prof. Dr. Sinan Rusinovci",
         role: "Maxillofacial Surgeon",
-        image: "/images/img4.jpg",
+        image: "/images/sinane.jpg",
         text: "Diagnosis and surgical treatment of diseases, injuries, and abnormalities affecting the mouth, jaws, and facial region.",
       },
       {
@@ -78,14 +78,14 @@ const translations = {
         id: "arbereshe-pnishi",
         name: "Dr. Arbereshe Pnishi-Berisha",
         role: "Orthodontist",
-        image: "/images/img6.jpg",
+        image: "/images/arbereshap.jpg",
         text: "Diagnosis and treatment of tooth and jaw alignment issues to achieve a functional bite and a harmonious smile.",
       },
       {
         id: "blerta-rusinovci",
         name: "Dr. Blerta Rusinovci",
         role: "General Dentist",
-        image: "/images/img4.jpg",
+        image: "/images/blertar.jpg",
         text: "Dental examinations, diagnosis, preventive care, and restorative treatments focused on maintaining long-term oral health.",
       },
       

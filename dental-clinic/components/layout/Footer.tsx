@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import Image from "next/image";
 
 const translations = {
   sq: {
@@ -69,7 +70,26 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 border-b border-white/10 pb-12 md:grid-cols-4">
           <div className="md:col-span-1">
-            <h3 className="text-3xl font-light">Sident</h3>
+
+            <div className="md:col-span-1">
+              <Link
+                href="/"
+                className="relative block h-[70px] w-[240px] max-w-full"
+              >
+                <Image
+                  src="/images/logo2.png"
+                  alt="Sident Dental Clinic"
+                  fill
+                  sizes="260px"
+                  className="object-contain object-left"
+                />
+              </Link>
+
+              <p className="mt-5 text-sm leading-7 text-blue-100">
+                {text.description}
+              </p>
+            </div>
+
 
             <p className="mt-5 text-sm leading-7 text-blue-100">
               {text.description}
