@@ -501,28 +501,28 @@ export default function ServicesDetails({
 
   useEffect(() => {
     setVisibleCards([]);
-    cardRefs.current = [];
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
           const index = Number(
             (entry.target as HTMLElement).dataset.index
           );
 
-          if (entry.isIntersecting) {
-            setVisibleCards((previous) =>
-              previous.includes(index)
-                ? previous
-                : [...previous, index]
-            );
+          setVisibleCards((previous) =>
+            previous.includes(index)
+              ? previous
+              : [...previous, index]
+          );
 
-            observer.unobserve(entry.target);
-          }
+          observer.unobserve(entry.target);
         });
       },
       {
-        threshold: 0.35,
+        threshold: 0,
+        rootMargin: "0px 0px -20px 0px",
       }
     );
 
@@ -532,7 +532,7 @@ export default function ServicesDetails({
           observer.observe(card);
         }
       });
-    }, 0);
+    }, 100);
 
     return () => {
       window.clearTimeout(timer);
@@ -572,11 +572,10 @@ export default function ServicesDetails({
               key={category}
               type="button"
               onClick={() => setActiveCategory(category)}
-              className={`rounded-full border px-6 py-3 text-sm transition-all duration-300 active:scale-95 ${
-                activeCategory === category
+              className={`rounded-full border px-6 py-3 text-sm transition-all duration-300 active:scale-95 ${activeCategory === category
                   ? "border-[#052f5e] bg-[#052f5e] text-white"
                   : "border-slate-200 bg-white text-slate-500 hover:border-[#052f5e] hover:text-[#052f5e]"
-              }`}
+                }`}
             >
               {t.categoryLabels[category]}
             </button>
@@ -595,13 +594,11 @@ export default function ServicesDetails({
                   cardRefs.current[index] = element;
                 }}
                 data-index={index}
-                className={`service-detail-card ${
-                  reverse
+                className={`service-detail-card ${reverse
                     ? "service-slide-right"
                     : "service-slide-left"
-                } ${
-                  visible ? "service-visible" : ""
-                } grid overflow-hidden rounded-[34px] border border-slate-200 bg-white shadow-sm md:grid-cols-2`}
+                  } ${visible ? "service-visible" : ""
+                  } grid overflow-hidden rounded-[34px] border border-slate-200 bg-white shadow-sm md:grid-cols-2`}
               >
                 <div className={reverse ? "md:order-2" : ""}>
                   <div className="service-detail-image relative h-[360px] md:h-full">
@@ -616,9 +613,8 @@ export default function ServicesDetails({
                 </div>
 
                 <div
-                  className={`flex flex-col justify-center p-8 md:p-12 ${
-                    reverse ? "md:order-1" : ""
-                  }`}
+                  className={`flex flex-col justify-center p-8 md:p-12 ${reverse ? "md:order-1" : ""
+                    }`}
                 >
                   <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-[#87A5C0]">
                     {activeCategoryLabel}
