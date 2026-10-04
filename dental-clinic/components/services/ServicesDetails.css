@@ -1,8 +1,13 @@
 .service-detail-card {
   opacity: 0;
-  transition: opacity 0.9s ease, transform 0.9s ease, box-shadow 0.35s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease,
+    box-shadow 0.35s ease;
+  will-change: opacity, transform;
 }
 
+/* Desktop */
 .service-slide-left {
   transform: translateX(-80px);
 }
@@ -20,6 +25,11 @@
   box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
 }
 
+.service-detail-image {
+  width: 100%;
+  overflow: hidden;
+}
+
 .service-detail-image img {
   transition: transform 1.2s ease;
 }
@@ -28,13 +38,19 @@
   transform: scale(1.04);
 }
 
+/* Mobile */
 @media (max-width: 768px) {
   .service-slide-left,
   .service-slide-right {
-    transform: translateY(45px);
+    transform: translateY(35px);
   }
 
   .service-visible {
+    opacity: 1;
     transform: translateY(0);
+  }
+
+  .service-detail-image {
+    width: 100%;
   }
 }
