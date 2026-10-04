@@ -32,16 +32,18 @@ export default function ContactHero() {
     <section
       className="
         relative
-        min-h-[100svh]
+        h-[100svh]
+        min-h-[650px]
+        w-full
         overflow-hidden
         text-center
         text-white
-        md:min-h-[100dvh]
+
+        md:h-[100dvh]
+        md:min-h-[700px]
       "
     >
-      {/* =========================================
-          BACKGROUND IMAGE
-      ========================================== */}
+      {/* BACKGROUND IMAGE */}
       <div className="absolute inset-0">
         <Image
           src="/images/img17.jpg"
@@ -49,16 +51,11 @@ export default function ContactHero() {
           fill
           priority
           sizes="100vw"
-          className="
-            object-cover
-            object-[62%_center]
-            sm:object-[58%_center]
-            md:object-center
-          "
+          className="object-cover object-[70%_center] md:object-center"
         />
       </div>
 
-   
+      {/* DARK OVERLAY */}
       <div
         className="
           absolute
@@ -68,7 +65,7 @@ export default function ContactHero() {
         "
       />
 
-    
+      {/* GRADIENT */}
       <div
         className="
           absolute
@@ -84,14 +81,14 @@ export default function ContactHero() {
         "
       />
 
-     
+      {/* CONTENT */}
       <div
         className="
           relative
           z-10
           mx-auto
           flex
-          min-h-[100svh]
+          h-full
           w-full
           max-w-5xl
           flex-col
@@ -99,19 +96,17 @@ export default function ContactHero() {
           justify-center
 
           px-5
-          pb-24
-          pt-24
+          pb-20
+          pt-28
 
           sm:px-8
-          sm:pt-28
 
-          md:min-h-[100dvh]
           md:px-10
           md:pb-20
           md:pt-28
         "
       >
-        {/* Eyebrow */}
+        {/* EYEBROW */}
         <p
           className="
             hero-fade-up
@@ -121,7 +116,7 @@ export default function ContactHero() {
             text-[10px]
             font-bold
             uppercase
-            tracking-[0.38em]
+            tracking-[0.34em]
             text-blue-200
 
             sm:text-[11px]
@@ -134,18 +129,19 @@ export default function ContactHero() {
           {t.eyebrow}
         </p>
 
+        {/* TITLE */}
         <h1
           className="
             hero-fade-up
             hero-delay-200
 
             mx-auto
-            max-w-[390px]
+            max-w-[410px]
 
             text-[36px]
             font-light
             leading-[1.08]
-            tracking-[-0.03em]
+            tracking-[-0.025em]
 
             sm:max-w-[560px]
             sm:text-[48px]
@@ -164,9 +160,7 @@ export default function ContactHero() {
           </span>
         </h1>
 
-        {/* =========================================
-            DESCRIPTION
-        ========================================== */}
+        {/* DESCRIPTION */}
         <p
           className="
             hero-fade-up
@@ -186,7 +180,7 @@ export default function ContactHero() {
 
             md:mt-8
             md:max-w-2xl
-            md:text-lg
+            md:text-base
             md:leading-8
           "
         >
@@ -194,9 +188,7 @@ export default function ContactHero() {
         </p>
       </div>
 
-      {/* =========================================
-          SCROLL INDICATOR
-      ========================================== */}
+      {/* SCROLL INDICATOR */}
       <div
         className="
           absolute
@@ -211,16 +203,13 @@ export default function ContactHero() {
         <div
           className="
             hero-scroll
-
             flex
             h-10
             w-6
             justify-center
-
             rounded-full
             border
             border-white/40
-
             bg-black/10
             backdrop-blur-sm
           "

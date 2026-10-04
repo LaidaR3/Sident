@@ -47,7 +47,7 @@ const translations = {
         focus:
           "Përmes planifikimit të detajuar dhe teknikave bashkëkohore, ai synon procedura sa më të rehatshme dhe rikuperim të sigurt.",
         stats: [
-          "8+ vite përvojë",
+          "10+ vite përvojë",
           "Kirurgji orale",
           "Ekstraksione",
           "Trajtime kirurgjikale",
@@ -69,7 +69,7 @@ const translations = {
         focus:
           "Çdo plan trajtimi përshtatet sipas nevojave individuale të pacientit, me fokus në rezultate të qëndrueshme dhe buzëqeshje harmonike.",
         stats: [
-          "8+ vite përvojë",
+          "13+ vite përvojë",
           "Aparate fikse",
           "Aparate transparente",
           "Planifikim ortodontik",
@@ -148,7 +148,7 @@ const translations = {
         focus:
           "Through detailed planning and modern techniques, he aims to provide comfortable procedures and a safe recovery.",
         stats: [
-          "8+ years of experience",
+          "10+ years of experience",
           "Oral surgery",
           "Extractions",
           "Surgical treatments",
@@ -170,7 +170,7 @@ const translations = {
         focus:
           "Every treatment plan is tailored to the patient’s individual needs, with a focus on long-lasting results and a balanced smile.",
         stats: [
-          "8+ years of experience",
+          "13+ years of experience",
           "Fixed braces",
           "Clear aligners",
           "Orthodontic planning",
